@@ -16,7 +16,7 @@ class MenuCoordinator: Coordinator {
     }
 
     func start() {
-        let controller = MenuViewController()
+        let controller = MenuViewController(viewModel: MenuViewModel())
         navigationController.pushViewController(controller, animated: false)
     }
 }

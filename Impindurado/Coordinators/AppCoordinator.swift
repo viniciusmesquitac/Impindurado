@@ -15,6 +15,10 @@ final class AppCoordinator: Coordinator {
     init(window: UIWindow) {
         self.window = window
         self.navigationController = UINavigationController()
+        self.navigationController.navigationBar.backgroundColor = .clear
+        self.navigationController.navigationBar.isTranslucent = false
+        self.navigationController.navigationBar.barTintColor = .clear
+        self.navigationController.navigationBar.barStyle = .black
     }
 
     func start() {
