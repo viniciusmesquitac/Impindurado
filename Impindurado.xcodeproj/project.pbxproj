@@ -16,6 +16,11 @@
 		8180A5B226C2D0450057CF10 /* app.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8180A5B126C2D0450057CF10 /* app.strings */; };
 		8180A5B826C2D3150057CF10 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5B726C2D3150057CF10 /* R.generated.swift */; };
 		8180A5BB26C2DA340057CF10 /* MenuBackground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8180A5BA26C2DA340057CF10 /* MenuBackground.mp3 */; };
+		8180A5C026C2E3590057CF10 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5BD26C2E3590057CF10 /* GameViewController.swift */; };
+		8180A5C126C2E3590057CF10 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5BE26C2E3590057CF10 /* GameView.swift */; };
+		8180A5C226C2E3590057CF10 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5BF26C2E3590057CF10 /* GameViewModel.swift */; };
+		8180A5CF26C49BC50057CF10 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5CE26C49BC50057CF10 /* GameCoordinator.swift */; };
+		8180A5D126C557C30057CF10 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5D026C557C30057CF10 /* KeyboardView.swift */; };
 		81F5C35326C1934D00C81C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5C35226C1934D00C81C9A /* AppDelegate.swift */; };
 		81F5C35526C1934D00C81C9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5C35426C1934D00C81C9A /* SceneDelegate.swift */; };
 		81F5C35C26C1934F00C81C9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81F5C35B26C1934F00C81C9A /* Assets.xcassets */; };
@@ -77,6 +82,11 @@
 		8180A5B126C2D0450057CF10 /* app.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = app.strings; sourceTree = "<group>"; };
 		8180A5B726C2D3150057CF10 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		8180A5BA26C2DA340057CF10 /* MenuBackground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MenuBackground.mp3; sourceTree = "<group>"; };
+		8180A5BD26C2E3590057CF10 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		8180A5BE26C2E3590057CF10 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		8180A5BF26C2E3590057CF10 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		8180A5CE26C49BC50057CF10 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
+		8180A5D026C557C30057CF10 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		81F5C34F26C1934D00C81C9A /* Impindurado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impindurado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F5C35226C1934D00C81C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81F5C35426C1934D00C81C9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +148,7 @@
 				8180A5A026C2BA720057CF10 /* SoundButton.swift */,
 				8180A5A426C2C3F60057CF10 /* AppButton.swift */,
 				8180A5A626C2C50F0057CF10 /* AppButtonStyle.swift */,
+				8180A5D026C557C30057CF10 /* KeyboardView.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -177,6 +188,16 @@
 				8180A5BA26C2DA340057CF10 /* MenuBackground.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		8180A5BC26C2E33F0057CF10 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				8180A5BD26C2E3590057CF10 /* GameViewController.swift */,
+				8180A5BE26C2E3590057CF10 /* GameView.swift */,
+				8180A5BF26C2E3590057CF10 /* GameViewModel.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 		81F5C34626C1934D00C81C9A = {
@@ -240,6 +261,7 @@
 				81F5C38326C1D9D700C81C9A /* Coordinator.swift */,
 				81F5C38526C1DA1200C81C9A /* AppCoordinator.swift */,
 				81F5C38726C1DA5700C81C9A /* MenuCoordinator.swift */,
+				8180A5CE26C49BC50057CF10 /* GameCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -247,6 +269,7 @@
 		81F5C38926C1DB4A00C81C9A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8180A5BC26C2E33F0057CF10 /* Game */,
 				81F5C38B26C1DB5A00C81C9A /* Menu */,
 			);
 			path = Scenes;
@@ -556,18 +579,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8180A5C226C2E3590057CF10 /* GameViewModel.swift in Sources */,
+				8180A5CF26C49BC50057CF10 /* GameCoordinator.swift in Sources */,
 				81F5C39126C1DD0500C81C9A /* Sound.swift in Sources */,
 				8180A5A726C2C50F0057CF10 /* AppButtonStyle.swift in Sources */,
 				8180A5B826C2D3150057CF10 /* R.generated.swift in Sources */,
 				8180A5A126C2BA720057CF10 /* SoundButton.swift in Sources */,
 				81F5C3B926C1E94700C81C9A /* ViewCode.swift in Sources */,
+				8180A5C126C2E3590057CF10 /* GameView.swift in Sources */,
 				81F5C3B626C1E85D00C81C9A /* MenuView.swift in Sources */,
 				81F5C3BB26C1E96E00C81C9A /* ViewModel.swift in Sources */,
 				81F5C38626C1DA1200C81C9A /* AppCoordinator.swift in Sources */,
 				81F5C3B726C1E85D00C81C9A /* MenuViewModel.swift in Sources */,
 				81F5C35326C1934D00C81C9A /* AppDelegate.swift in Sources */,
+				8180A5D126C557C30057CF10 /* KeyboardView.swift in Sources */,
 				81F5C3B526C1E85D00C81C9A /* MenuViewController.swift in Sources */,
 				8180A5A526C2C3F60057CF10 /* AppButton.swift in Sources */,
+				8180A5C026C2E3590057CF10 /* GameViewController.swift in Sources */,
 				81F5C38826C1DA5700C81C9A /* MenuCoordinator.swift in Sources */,
 				81F5C35526C1934D00C81C9A /* SceneDelegate.swift in Sources */,
 				81F5C38426C1D9D700C81C9A /* Coordinator.swift in Sources */,

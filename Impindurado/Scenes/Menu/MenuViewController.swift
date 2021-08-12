@@ -11,9 +11,11 @@ class MenuViewController: UIViewController {
 
     let mainView = MenuView()
     var viewModel: MenuViewModel?
+    var coordinator: MenuCoordinator?
 
-    init(viewModel: MenuViewModel) {
+    init(viewModel: MenuViewModel, coordinator: MenuCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -50,7 +52,7 @@ class MenuViewController: UIViewController {
     }
 
     @objc func didSelectPlayButton() {
-        // TODO: Send to GameScene
+        coordinator?.gameScene()
     }
 
     @objc func didSelectLeaderboardButton() {

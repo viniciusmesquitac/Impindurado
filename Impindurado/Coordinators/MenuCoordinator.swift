@@ -16,7 +16,12 @@ class MenuCoordinator: Coordinator {
     }
 
     func start() {
-        let controller = MenuViewController(viewModel: MenuViewModel())
+        let controller = MenuViewController(viewModel: MenuViewModel(), coordinator: self)
         navigationController.pushViewController(controller, animated: false)
+    }
+    
+    func gameScene() {
+        let coordinator = GameCoordinator(navigationController: navigationController)
+        coordinator.start()
     }
 }
