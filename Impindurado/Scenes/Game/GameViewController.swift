@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
 
     let mainView = GameView()
     var viewModel: GameViewModel?
+    var scene: GameScene?
 
     init(viewModel: GameViewModel) {
         self.viewModel = viewModel
@@ -30,6 +31,12 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.keyboardView.delegate = self
+        setupScene()
+    }
+    
+    func setupScene() {
+        scene = GameScene(size: CGSize(width: 100, height: 100))
+        mainView.skView.presentScene(scene)
     }
 }
 

@@ -8,8 +8,14 @@
 //
 
 import UIKit
+import SpriteKit
 
 class GameView: UIView {
+
+    let skView: SKView = {
+        let skView = SKView()
+        return skView
+    }()
 
     let keyboardView: KeyboardView = {
         let view = KeyboardView()
@@ -31,12 +37,20 @@ class GameView: UIView {
 extension GameView: ViewCode {
 
     func setupViewHierarchy() {
+        addSubview(skView)
         addSubview(keyboardView)
     }
 
     func setupConstraints() {
+    
+        skView.snp.makeConstraints { make in
+            make.leading.trailing.top.equalToSuperview()
+            make.height.equalTo(UIScreen.main.bounds.height/2)
+        }
+
         keyboardView.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(skView.snp.bottom).offset(24)
+            make.leading.trailing.equalToSuperview().inset(24)
         }
     }
 
