@@ -12,7 +12,9 @@ class WordsModel {
     private var actualWord: String
     
     init() {
-        setNewWord()
+        let jsonModel = JSONDataModel()
+        word = jsonModel.getRandomWord()
+        actualWord = word.portuguese
     }
     
     //// Reinicia todo o fluxo de word

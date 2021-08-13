@@ -20,19 +20,27 @@ class GameView: UIView {
     let microfoneButton: UIButton = {
         let button = UIButton()
         button.setImage(R.image.ic_microfone(), for: .normal)
+        button.tintColor = .white
         return button
     }()
 
     let backButton: UIButton = {
         let button = UIButton()
-        button.setImage(R.image.ic_microfone(), for: .normal)
+        button.setImage(R.image.ic_back(), for: .normal)
+        button.tintColor = .white
         return button
     }()
 
     let scoreLabel: UILabel = {
         let label = UILabel()
-        label.text = "Score: "
+        label.text = "SCORE"
         return label
+    }()
+    
+    let backgroundImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.game_background()
+        return imageView
     }()
 
     let keyboardView: KeyboardView = {
@@ -56,6 +64,7 @@ class GameView: UIView {
 extension GameView: ViewCode {
 
     func setupViewHierarchy() {
+        addSubview(backgroundImage)
         addSubview(backButton)
         addSubview(microfoneButton)
         addSubview(scoreLabel)
@@ -64,7 +73,10 @@ extension GameView: ViewCode {
     }
 
     func setupConstraints() {
-    
+        backgroundImage.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
         scoreLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(48)
             make.centerX.equalToSuperview()

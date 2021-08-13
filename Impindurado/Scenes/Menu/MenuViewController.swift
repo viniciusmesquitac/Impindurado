@@ -29,6 +29,7 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Sound.enabled = true
         setupOutput()
         setupInput()
     }

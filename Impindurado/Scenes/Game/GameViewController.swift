@@ -31,7 +31,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.keyboardView.delegate = self
-        mainView.microfoneButton.addTarget(self, action: #selector(didSelectBackButton), for: .touchUpInside)
+        mainView.backButton.addTarget(self, action: #selector(didSelectBackButton), for: .touchUpInside)
     }
 
     @objc func didSelectBackButton() {

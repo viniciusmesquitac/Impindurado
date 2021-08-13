@@ -35,7 +35,8 @@ class LivesView: UIView {
     private func setupLives() {
         for _ in 1...totalNumberOfLives {
             let imageView = UIImageView()
-            imageView.image = .checkmark
+            imageView.snp.makeConstraints { $0.size.equalTo(CGSize(width: 24, height: 24)) }
+            imageView.image = R.image.life_remain()
             stackView.addArrangedSubview(imageView)
         }
     }
@@ -47,7 +48,7 @@ class LivesView: UIView {
         }
         let lastLive = stackView.arrangedSubviews[currentLives - 1]
         currentLives -= 1
-        if let imageView = lastLive as? UIImageView { imageView.image = .remove}
+        if let imageView = lastLive as? UIImageView { imageView.image = R.image.life_lost()}
     }
 }
 
