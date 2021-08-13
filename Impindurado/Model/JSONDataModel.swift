@@ -7,7 +7,11 @@
 
 import Foundation
 
-class JSONDataModel {
+protocol JSONModel {
+    func getRandomWord() -> Word
+}
+
+class JSONDataModel: JSONModel {
     private lazy var words: [Word] = readAllWords()
     
     internal func readAllWords(for jsonFile: String = "jsonFile") -> [Word] {

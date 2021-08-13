@@ -34,6 +34,7 @@
 		C20A85E280B3671285B647EF /* Pods_Impindurado.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36772C7B6F1173B6321C52F9 /* Pods_Impindurado.framework */; };
 		D13304BC26C4979A001D563C /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13304BB26C4979A001D563C /* Word.swift */; };
 		D13304BE26C497B4001D563C /* JSONDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13304BD26C497B4001D563C /* JSONDataModel.swift */; };
+		D1A51B6D26C5D76100E1A2DC /* WordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A51B6C26C5D76100E1A2DC /* WordsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		BEC33AF8B3ED6C65C0249270 /* Pods-Impindurado.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impindurado.debug.xcconfig"; path = "Target Support Files/Pods-Impindurado/Pods-Impindurado.debug.xcconfig"; sourceTree = "<group>"; };
 		D13304BB26C4979A001D563C /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		D13304BD26C497B4001D563C /* JSONDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataModel.swift; sourceTree = "<group>"; };
+		D1A51B6C26C5D76100E1A2DC /* WordsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsModel.swift; sourceTree = "<group>"; };
 		D91A635BCD54A45890586B63 /* Pods-Impindurado-ImpinduradoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impindurado-ImpinduradoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Impindurado-ImpinduradoUITests/Pods-Impindurado-ImpinduradoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2C2C15A0C40E186AF55F9B2 /* Pods-Impindurado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impindurado.release.xcconfig"; path = "Target Support Files/Pods-Impindurado/Pods-Impindurado.release.xcconfig"; sourceTree = "<group>"; };
 		F77FF41DB93FE9EA130F15C4 /* Pods_ImpinduradoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImpinduradoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,6 +297,7 @@
 			children = (
 				D13304BB26C4979A001D563C /* Word.swift */,
 				D13304BD26C497B4001D563C /* JSONDataModel.swift */,
+				D1A51B6C26C5D76100E1A2DC /* WordsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81F5C39126C1DD0500C81C9A /* Sound.swift in Sources */,
+				D1A51B6D26C5D76100E1A2DC /* WordsModel.swift in Sources */,
 				D13304BC26C4979A001D563C /* Word.swift in Sources */,
 				8180A5A726C2C50F0057CF10 /* AppButtonStyle.swift in Sources */,
 				8180A5B826C2D3150057CF10 /* R.generated.swift in Sources */,
