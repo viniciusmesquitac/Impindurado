@@ -13,11 +13,11 @@ class GameViewController: UIViewController {
 
     let mainView = GameView()
     var viewModel: GameViewModel?
-    var scene: GameScene?
 
     init(viewModel: GameViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        transitioningDelegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -31,17 +31,29 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.keyboardView.delegate = self
-        setupScene()
+        mainView.microfoneButton.addTarget(self, action: #selector(didSelectBackButton), for: .touchUpInside)
     }
-    
-    func setupScene() {
-        scene = GameScene(size: CGSize(width: 100, height: 100))
-        mainView.skView.presentScene(scene)
+
+    @objc func didSelectBackButton() {
+        self.dismiss(animated: true)
     }
 }
 
 extension GameViewController: KeyboardDelegate {
     func didSelectKey(key: String) {
         print(key)
+        mainView.livesView.removeOneLive()
     }
+}
+
+extension GameViewController: UIViewControllerTransitioningDelegate {
+
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return AnimationController(animationDuration: 0.33, animationType: .present)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return AnimationController(animationDuration: 0.33, animationType: .dismiss)
+    }
+
 }

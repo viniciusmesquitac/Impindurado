@@ -12,9 +12,27 @@ import SpriteKit
 
 class GameView: UIView {
 
-    let skView: SKView = {
-        let skView = SKView()
-        return skView
+    let livesView: LivesView = {
+        let view = LivesView(totalNumberOfLives: 6)
+        return view
+    }()
+
+    let microfoneButton: UIButton = {
+        let button = UIButton()
+        button.setImage(R.image.ic_microfone(), for: .normal)
+        return button
+    }()
+
+    let backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(R.image.ic_microfone(), for: .normal)
+        return button
+    }()
+
+    let scoreLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Score: "
+        return label
     }()
 
     let keyboardView: KeyboardView = {
@@ -24,6 +42,7 @@ class GameView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .brown
         setupViewHierarchy()
         setupConstraints()
     }
@@ -37,20 +56,38 @@ class GameView: UIView {
 extension GameView: ViewCode {
 
     func setupViewHierarchy() {
-        addSubview(skView)
+        addSubview(backButton)
+        addSubview(microfoneButton)
+        addSubview(scoreLabel)
+        addSubview(livesView)
         addSubview(keyboardView)
     }
 
     func setupConstraints() {
     
-        skView.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
-            make.height.equalTo(UIScreen.main.bounds.height/2)
+        scoreLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(48)
+            make.centerX.equalToSuperview()
+        }
+        
+        backButton.snp.makeConstraints { make in
+            make.centerY.equalTo(scoreLabel)
+            make.leading.equalToSuperview().inset(24)
+        }
+    
+        microfoneButton.snp.makeConstraints { make in
+            make.centerY.equalTo(scoreLabel)
+            make.trailing.equalToSuperview().inset(24)
+        }
+
+        livesView.snp.makeConstraints { make in
+            make.top.equalTo(scoreLabel.snp.bottom).offset(24)
+            make.leading.equalToSuperview().inset(24)
         }
 
         keyboardView.snp.makeConstraints { make in
-            make.top.equalTo(skView.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview().inset(24)
+            make.bottom.equalToSuperview().inset(64)
         }
     }
 

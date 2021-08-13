@@ -17,6 +17,6 @@ class GameCoordinator: Coordinator {
 
     func start() {
         let controller = GameViewController(viewModel: GameViewModel())
-        navigationController.pushViewController(controller, animated: false)
+        navigationController.present(controller, animated: true)
     }
 }
