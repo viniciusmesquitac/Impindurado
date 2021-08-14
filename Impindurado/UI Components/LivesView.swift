@@ -54,7 +54,11 @@ class LivesView: UIView {
         }
         let lastLive = stackView.arrangedSubviews[currentLives - 1]
         currentLives -= 1
-        if let imageView = lastLive as? UIImageView { imageView.image = R.image.life_lost()}
+        
+        if currentLives == .zero {
+            delegate?.didLoseAllLives()
+        }
+        if let imageView = lastLive as? UIImageView { imageView.image = R.image.life_lost() }
     }
 }
 

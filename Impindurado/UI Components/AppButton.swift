@@ -8,19 +8,6 @@
 import UIKit
 
 class AppButton: UIButton {
-    
-    override var isHighlighted: Bool {
-        didSet {
-            if oldValue == false && isHighlighted {
-                self.backgroundColor = highlightedColor
-            }
-            else if oldValue == true && !isHighlighted {
-                self.backgroundColor = defaultColor
-            }
-        }
-    }
-    var highlightedColor: UIColor = .clear
-    var defaultColor: UIColor = .clear
 
     init(style: AppButtonStyle) {
         super.init(frame: .zero)
@@ -40,8 +27,29 @@ class AppButton: UIButton {
         self.layer.borderWidth  = style.borderWidth
         self.layer.borderColor  = style.borderColor
         self.layer.cornerRadius = style.cornerRadious
-        self.defaultColor       = style.backgroundColor
-        self.highlightedColor   = style.highlightedColor
+
+        self.setBackgroundColor(style.backgroundColor, for: .normal)
+        self.setBackgroundColor(style.highlightedColor, for: .highlighted)
+    }
+}
+
+extension UIButton {
+    private func image(withColor color: UIColor) -> UIImage? {
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
+    func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
+        self.setBackgroundImage(image(withColor: color), for: state)
     }
 }
 
