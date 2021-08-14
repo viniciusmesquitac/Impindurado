@@ -24,6 +24,9 @@
 		8180A5D526C579790057CF10 /* LivesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5D426C579790057CF10 /* LivesView.swift */; };
 		8180A5DA26C5C4B80057CF10 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5D926C5C4B80057CF10 /* AnimationController.swift */; };
 		81BC54E226C736EB004C4A58 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC54E126C736EB004C4A58 /* Colors.swift */; };
+		81BC54E626C742FC004C4A58 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81BC54E526C7428D004C4A58 /* Pacifico-Regular.ttf */; };
+		81BC54E726C742FE004C4A58 /* Adventure-Subtitles.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81BC54E426C74015004C4A58 /* Adventure-Subtitles.ttf */; };
+		81BC54EA26C7474C004C4A58 /* NES2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81BC54E826C74706004C4A58 /* NES2.ttf */; };
 		81F5C35326C1934D00C81C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5C35226C1934D00C81C9A /* AppDelegate.swift */; };
 		81F5C35526C1934D00C81C9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5C35426C1934D00C81C9A /* SceneDelegate.swift */; };
 		81F5C35C26C1934F00C81C9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81F5C35B26C1934F00C81C9A /* Assets.xcassets */; };
@@ -96,6 +99,9 @@
 		8180A5D426C579790057CF10 /* LivesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivesView.swift; sourceTree = "<group>"; };
 		8180A5D926C5C4B80057CF10 /* AnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		81BC54E126C736EB004C4A58 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		81BC54E426C74015004C4A58 /* Adventure-Subtitles.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Adventure-Subtitles.ttf"; sourceTree = "<group>"; };
+		81BC54E526C7428D004C4A58 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		81BC54E826C74706004C4A58 /* NES2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NES2.ttf; sourceTree = "<group>"; };
 		81F5C34F26C1934D00C81C9A /* Impindurado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impindurado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F5C35226C1934D00C81C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81F5C35426C1934D00C81C9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 		8180A5A926C2CF1F0057CF10 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				81BC54E326C73ED6004C4A58 /* Fonts */,
 				8180A5B726C2D3150057CF10 /* R.generated.swift */,
 				8180A5B926C2D9510057CF10 /* Sounds */,
 				8180A5AA26C2CF2A0057CF10 /* Strings */,
@@ -220,6 +227,16 @@
 				8180A5D926C5C4B80057CF10 /* AnimationController.swift */,
 			);
 			path = Transitions;
+			sourceTree = "<group>";
+		};
+		81BC54E326C73ED6004C4A58 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				81BC54E826C74706004C4A58 /* NES2.ttf */,
+				81BC54E526C7428D004C4A58 /* Pacifico-Regular.ttf */,
+				81BC54E426C74015004C4A58 /* Adventure-Subtitles.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		81F5C34626C1934D00C81C9A = {
@@ -464,7 +481,10 @@
 			files = (
 				8180A5B226C2D0450057CF10 /* app.strings in Resources */,
 				81F5C35F26C1934F00C81C9A /* LaunchScreen.storyboard in Resources */,
+				81BC54E726C742FE004C4A58 /* Adventure-Subtitles.ttf in Resources */,
 				81F5C35C26C1934F00C81C9A /* Assets.xcassets in Resources */,
+				81BC54EA26C7474C004C4A58 /* NES2.ttf in Resources */,
+				81BC54E626C742FC004C4A58 /* Pacifico-Regular.ttf in Resources */,
 				8180A5B026C2D0300057CF10 /* button.strings in Resources */,
 				8180A5BB26C2DA340057CF10 /* MenuBackground.mp3 in Resources */,
 			);
@@ -526,7 +546,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Impindurado/Assets/R.generated.swift\" --generators string,image\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Impindurado/Assets/R.generated.swift\" --generators string,image,font\n";
 		};
 		A0ECFE4D04F5149A62C32814 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

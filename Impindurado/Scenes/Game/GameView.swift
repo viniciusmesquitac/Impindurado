@@ -34,6 +34,7 @@ class GameView: UIView {
     let scoreLabel: UILabel = {
         let label = UILabel()
         label.text = "SCORE"
+        label.font = R.font.adventureSubtitles(size: 24)
         return label
     }()
     

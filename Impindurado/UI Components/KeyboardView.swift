@@ -70,6 +70,7 @@ extension KeyboardView: ViewCode {
             button.addTarget(self, action: #selector(didSelectKey), for: .touchUpInside)
             button.tag = key.hashValue
             button.setTitle(key.rawValue, for: .normal)
+            button.titleLabel?.font = R.font.adventureSubtitles(size: 16)
             keyLineStackView.addArrangedSubview(button)
         }
     }
