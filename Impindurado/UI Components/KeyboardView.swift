@@ -18,6 +18,7 @@ enum Alphabet: String, CaseIterable {
     }
 }
 
+// Returns which letter the user tapped.
 protocol KeyboardDelegate: AnyObject {
     func didSelectKey(key: String)
 }

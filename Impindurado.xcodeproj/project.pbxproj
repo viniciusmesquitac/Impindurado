@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0294033EDA5CF0FDEF2EBB91 /* Pods_Impindurado_ImpinduradoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66151C2E335F38B063A52F5D /* Pods_Impindurado_ImpinduradoUITests.framework */; };
 		07D2387FD236A1CE2B87564A /* Pods_ImpinduradoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77FF41DB93FE9EA130F15C4 /* Pods_ImpinduradoTests.framework */; };
+		8126D38126C80F5400F4681C /* DottedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126D38026C80F5400F4681C /* DottedTextView.swift */; };
+		8126D38326C8210C00F4681C /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126D38226C8210C00F4681C /* AlertViewController.swift */; };
+		8126D38526C8327200F4681C /* alert.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8126D38426C8327200F4681C /* alert.strings */; };
 		8180A5A126C2BA720057CF10 /* SoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5A026C2BA720057CF10 /* SoundButton.swift */; };
 		8180A5A526C2C3F60057CF10 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5A426C2C3F60057CF10 /* AppButton.swift */; };
 		8180A5A726C2C50F0057CF10 /* AppButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5A626C2C50F0057CF10 /* AppButtonStyle.swift */; };
@@ -22,7 +25,6 @@
 		8180A5CF26C49BC50057CF10 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5CE26C49BC50057CF10 /* GameCoordinator.swift */; };
 		8180A5D126C557C30057CF10 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5D026C557C30057CF10 /* KeyboardView.swift */; };
 		8180A5D526C579790057CF10 /* LivesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5D426C579790057CF10 /* LivesView.swift */; };
-		8180A5DA26C5C4B80057CF10 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5D926C5C4B80057CF10 /* AnimationController.swift */; };
 		81BC54E226C736EB004C4A58 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC54E126C736EB004C4A58 /* Colors.swift */; };
 		81BC54E626C742FC004C4A58 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81BC54E526C7428D004C4A58 /* Pacifico-Regular.ttf */; };
 		81BC54E726C742FE004C4A58 /* Adventure-Subtitles.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81BC54E426C74015004C4A58 /* Adventure-Subtitles.ttf */; };
@@ -84,6 +86,9 @@
 		49573D2DD13DB7ED398A3C10 /* Pods-ImpinduradoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImpinduradoTests.debug.xcconfig"; path = "Target Support Files/Pods-ImpinduradoTests/Pods-ImpinduradoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		514CB17A59E912FCE90ED2A1 /* Pods-ImpinduradoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImpinduradoTests.release.xcconfig"; path = "Target Support Files/Pods-ImpinduradoTests/Pods-ImpinduradoTests.release.xcconfig"; sourceTree = "<group>"; };
 		66151C2E335F38B063A52F5D /* Pods_Impindurado_ImpinduradoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impindurado_ImpinduradoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8126D38026C80F5400F4681C /* DottedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedTextView.swift; sourceTree = "<group>"; };
+		8126D38226C8210C00F4681C /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		8126D38426C8327200F4681C /* alert.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = alert.strings; sourceTree = "<group>"; };
 		8180A5A026C2BA720057CF10 /* SoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundButton.swift; sourceTree = "<group>"; };
 		8180A5A426C2C3F60057CF10 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		8180A5A626C2C50F0057CF10 /* AppButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButtonStyle.swift; sourceTree = "<group>"; };
@@ -97,7 +102,6 @@
 		8180A5CE26C49BC50057CF10 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
 		8180A5D026C557C30057CF10 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		8180A5D426C579790057CF10 /* LivesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivesView.swift; sourceTree = "<group>"; };
-		8180A5D926C5C4B80057CF10 /* AnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		81BC54E126C736EB004C4A58 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		81BC54E426C74015004C4A58 /* Adventure-Subtitles.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Adventure-Subtitles.ttf"; sourceTree = "<group>"; };
 		81BC54E526C7428D004C4A58 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				8180A5A626C2C50F0057CF10 /* AppButtonStyle.swift */,
 				8180A5D026C557C30057CF10 /* KeyboardView.swift */,
 				8180A5D426C579790057CF10 /* LivesView.swift */,
+				8126D38026C80F5400F4681C /* DottedTextView.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			children = (
 				8180A5AF26C2D0300057CF10 /* button.strings */,
 				8180A5B126C2D0450057CF10 /* app.strings */,
+				8126D38426C8327200F4681C /* alert.strings */,
 			);
 			path = Strings;
 			sourceTree = "<group>";
@@ -217,16 +223,9 @@
 				8180A5BD26C2E3590057CF10 /* GameViewController.swift */,
 				8180A5BE26C2E3590057CF10 /* GameView.swift */,
 				8180A5BF26C2E3590057CF10 /* GameViewModel.swift */,
+				8126D38226C8210C00F4681C /* AlertViewController.swift */,
 			);
 			path = Game;
-			sourceTree = "<group>";
-		};
-		8180A5D626C5C4760057CF10 /* Transitions */ = {
-			isa = PBXGroup;
-			children = (
-				8180A5D926C5C4B80057CF10 /* AnimationController.swift */,
-			);
-			path = Transitions;
 			sourceTree = "<group>";
 		};
 		81BC54E326C73ED6004C4A58 /* Fonts */ = {
@@ -328,7 +327,6 @@
 		81F5C38F26C1DCFC00C81C9A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				8180A5D626C5C4760057CF10 /* Transitions */,
 				81F5C39026C1DD0500C81C9A /* Sound.swift */,
 				81F5C3B826C1E94700C81C9A /* ViewCode.swift */,
 				81F5C3BA26C1E96E00C81C9A /* ViewModel.swift */,
@@ -485,6 +483,7 @@
 				81F5C35C26C1934F00C81C9A /* Assets.xcassets in Resources */,
 				81BC54EA26C7474C004C4A58 /* NES2.ttf in Resources */,
 				81BC54E626C742FC004C4A58 /* Pacifico-Regular.ttf in Resources */,
+				8126D38526C8327200F4681C /* alert.strings in Resources */,
 				8180A5B026C2D0300057CF10 /* button.strings in Resources */,
 				8180A5BB26C2DA340057CF10 /* MenuBackground.mp3 in Resources */,
 			);
@@ -633,7 +632,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8180A5DA26C5C4B80057CF10 /* AnimationController.swift in Sources */,
 				8180A5C226C2E3590057CF10 /* GameViewModel.swift in Sources */,
 				8180A5CF26C49BC50057CF10 /* GameCoordinator.swift in Sources */,
 				8180A5D526C579790057CF10 /* LivesView.swift in Sources */,
@@ -649,12 +647,14 @@
 				81F5C3BB26C1E96E00C81C9A /* ViewModel.swift in Sources */,
 				D13304BE26C497B4001D563C /* JSONDataModel.swift in Sources */,
 				81F5C38626C1DA1200C81C9A /* AppCoordinator.swift in Sources */,
+				8126D38126C80F5400F4681C /* DottedTextView.swift in Sources */,
 				81F5C3B726C1E85D00C81C9A /* MenuViewModel.swift in Sources */,
 				81F5C35326C1934D00C81C9A /* AppDelegate.swift in Sources */,
 				8180A5D126C557C30057CF10 /* KeyboardView.swift in Sources */,
 				81F5C3B526C1E85D00C81C9A /* MenuViewController.swift in Sources */,
 				8180A5A526C2C3F60057CF10 /* AppButton.swift in Sources */,
 				81BC54E226C736EB004C4A58 /* Colors.swift in Sources */,
+				8126D38326C8210C00F4681C /* AlertViewController.swift in Sources */,
 				8180A5C026C2E3590057CF10 /* GameViewController.swift in Sources */,
 				81F5C38826C1DA5700C81C9A /* MenuCoordinator.swift in Sources */,
 				81F5C35526C1934D00C81C9A /* SceneDelegate.swift in Sources */,
