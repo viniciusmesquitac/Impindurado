@@ -87,9 +87,11 @@ extension KeyboardView: ViewCode {
         button.setBackgroundColor(.lightBrown, for: .normal)
         button.layer.cornerRadius = 4
         button.setTitle(key.rawValue, for: .normal)
-        button.titleLabel?.font = R.font.adventureSubtitles(size: 22)
+        let titleSizeBazed: CGFloat = UIDevice.is4InchDevice ? 18 : 22
+        button.titleLabel?.font = R.font.adventureSubtitles(size: titleSizeBazed)
         button.setBackgroundColor(.customBrown, for: .highlighted)
-        button.snp.makeConstraints { $0.size.equalTo(CGSize(width: 24, height: 48))}
+        let buttonSizeBased = UIDevice.is4InchDevice ? CGSize(width: 18, height: 36) : CGSize(width: 24, height: 48)
+        button.snp.makeConstraints { $0.size.equalTo(buttonSizeBased)}
         return button
     }
 

@@ -12,6 +12,7 @@
 		8126D38126C80F5400F4681C /* DottedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126D38026C80F5400F4681C /* DottedTextView.swift */; };
 		8126D38326C8210C00F4681C /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126D38226C8210C00F4681C /* AlertViewController.swift */; };
 		8126D38526C8327200F4681C /* alert.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8126D38426C8327200F4681C /* alert.strings */; };
+		8126D38726CA9E4A00F4681C /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126D38626CA9E4A00F4681C /* Device.swift */; };
 		8180A5A126C2BA720057CF10 /* SoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5A026C2BA720057CF10 /* SoundButton.swift */; };
 		8180A5A526C2C3F60057CF10 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5A426C2C3F60057CF10 /* AppButton.swift */; };
 		8180A5A726C2C50F0057CF10 /* AppButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8180A5A626C2C50F0057CF10 /* AppButtonStyle.swift */; };
@@ -89,6 +90,7 @@
 		8126D38026C80F5400F4681C /* DottedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedTextView.swift; sourceTree = "<group>"; };
 		8126D38226C8210C00F4681C /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		8126D38426C8327200F4681C /* alert.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = alert.strings; sourceTree = "<group>"; };
+		8126D38626CA9E4A00F4681C /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		8180A5A026C2BA720057CF10 /* SoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundButton.swift; sourceTree = "<group>"; };
 		8180A5A426C2C3F60057CF10 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		8180A5A626C2C50F0057CF10 /* AppButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButtonStyle.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				81F5C39026C1DD0500C81C9A /* Sound.swift */,
 				81F5C3B826C1E94700C81C9A /* ViewCode.swift */,
 				81F5C3BA26C1E96E00C81C9A /* ViewModel.swift */,
+				8126D38626CA9E4A00F4681C /* Device.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				8180A5A126C2BA720057CF10 /* SoundButton.swift in Sources */,
 				81F5C3B926C1E94700C81C9A /* ViewCode.swift in Sources */,
 				8180A5C126C2E3590057CF10 /* GameView.swift in Sources */,
+				8126D38726CA9E4A00F4681C /* Device.swift in Sources */,
 				81F5C3B626C1E85D00C81C9A /* MenuView.swift in Sources */,
 				81F5C3BB26C1E96E00C81C9A /* ViewModel.swift in Sources */,
 				D13304BE26C497B4001D563C /* JSONDataModel.swift in Sources */,
