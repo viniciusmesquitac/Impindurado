@@ -30,6 +30,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Sound.enabled = false
+        mainView.soundButton.isMuted = true
         setupOutput()
         setupInput()
     }
@@ -53,7 +54,10 @@ class MenuViewController: UIViewController {
     }
 
     @objc func didSelectPlayButton() {
-        coordinator?.gameScene()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
+            self.coordinator?.gameScene()
+        }
+
     }
 
     @objc func didSelectLeaderboardButton() {

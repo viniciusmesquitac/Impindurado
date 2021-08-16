@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol LivesViewDelegate: AnyObject {
+    func didLoseAllLives()
+}
+
 class LivesView: UIView {
 
     // Views
@@ -18,6 +22,8 @@ class LivesView: UIView {
     // Variables
     private var totalNumberOfLives: Int = 0
     private var currentLives: Int = 0
+    
+    weak var delegate: LivesViewDelegate?
 
     init(totalNumberOfLives: Int) {
         self.totalNumberOfLives = totalNumberOfLives
@@ -35,7 +41,7 @@ class LivesView: UIView {
     private func setupLives() {
         for _ in 1...totalNumberOfLives {
             let imageView = UIImageView()
-            imageView.snp.makeConstraints { $0.size.equalTo(CGSize(width: 24, height: 24)) }
+            imageView.snp.makeConstraints { $0.size.equalTo(CGSize(width: 32, height: 32)) }
             imageView.image = R.image.life_remain()
             stackView.addArrangedSubview(imageView)
         }
@@ -43,12 +49,16 @@ class LivesView: UIView {
     
     public func removeOneLive() {
         guard stackView.arrangedSubviews.indices.contains(currentLives - 1) else {
-            print("You don't have any lives")
+            delegate?.didLoseAllLives()
             return
         }
         let lastLive = stackView.arrangedSubviews[currentLives - 1]
         currentLives -= 1
-        if let imageView = lastLive as? UIImageView { imageView.image = R.image.life_lost()}
+        
+        if currentLives == .zero {
+            delegate?.didLoseAllLives()
+        }
+        if let imageView = lastLive as? UIImageView { imageView.image = R.image.life_lost() }
     }
 }
 

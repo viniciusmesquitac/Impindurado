@@ -35,6 +35,7 @@ class GameView: UIView {
         let label = UILabel()
         label.text = "SCORE"
         label.font = R.font.adventureSubtitles(size: 24)
+        label.textColor = .white
         return label
     }()
     
@@ -42,6 +43,19 @@ class GameView: UIView {
         let imageView = UIImageView()
         imageView.image = R.image.game_background()
         return imageView
+    }()
+    
+    let categoryLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Categoria"
+        label.font = R.font.pacificoRegular(size: 18)
+        label.textColor = .white
+        return label
+    }()
+    
+    let dottedTextView: DottedTextView = {
+        let textView = DottedTextView(numberOfSlots: 10)
+        return textView
     }()
 
     let keyboardView: KeyboardView = {
@@ -70,6 +84,8 @@ extension GameView: ViewCode {
         addSubview(microfoneButton)
         addSubview(scoreLabel)
         addSubview(livesView)
+        addSubview(categoryLabel)
+        addSubview(dottedTextView)
         addSubview(keyboardView)
     }
 
@@ -79,7 +95,7 @@ extension GameView: ViewCode {
         }
 
         scoreLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(48)
+            make.top.equalTo(snp.topMargin).offset(24)
             make.centerX.equalToSuperview()
         }
         
@@ -101,6 +117,16 @@ extension GameView: ViewCode {
         keyboardView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(24)
             make.bottom.equalToSuperview().inset(64)
+        }
+
+        categoryLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(keyboardView.snp.top).offset(-8)
+        }
+        
+        dottedTextView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(categoryLabel.snp.top).offset(-8)
         }
     }
 

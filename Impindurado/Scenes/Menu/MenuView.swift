@@ -13,13 +13,14 @@ class MenuView: UIView {
 
     lazy var appImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = R.image.logo()
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
     lazy var soundButton: SoundButton = {
         let button = SoundButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .customBrown
         return button
     }()
 
@@ -36,9 +37,16 @@ class MenuView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    let backgroundImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.menu_background()
+        return imageView
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .red
         setupViewHierarchy()
         setupConstraints()
     }
@@ -52,6 +60,7 @@ class MenuView: UIView {
 extension MenuView: ViewCode {
 
     func setupViewHierarchy() {
+        addSubview(backgroundImage)
         addSubview(appImageView)
         addSubview(soundButton)
         addSubview(playButton)
@@ -59,17 +68,23 @@ extension MenuView: ViewCode {
     }
 
     func setupConstraints() {
+
+        backgroundImage.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
-        NSLayoutConstraint.activate([
-            soundButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
-            soundButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
-        ])
+        soundButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(24)
+            make.top.equalTo(snp.topMargin)
+            make.size.equalTo(CGSize(width: 24, height: 24))
+        }
 
-        NSLayoutConstraint.activate([
-            appImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            appImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
-
+        appImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().dividedBy(1.5)
+            make.size.equalTo(CGSize(width: 200, height: 200))
+        }
+    
         NSLayoutConstraint.activate([
             playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),

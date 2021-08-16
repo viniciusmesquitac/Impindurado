@@ -13,11 +13,12 @@ class GameViewController: UIViewController {
 
     let mainView = GameView()
     var viewModel: GameViewModel?
+    var coordinator: GameCoordinator?
 
-    init(viewModel: GameViewModel) {
+    init(viewModel: GameViewModel, coordinator: GameCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
-        transitioningDelegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -31,6 +32,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.keyboardView.delegate = self
+        mainView.livesView.delegate = self
         mainView.backButton.addTarget(self, action: #selector(didSelectBackButton), for: .touchUpInside)
     }
 
@@ -40,20 +42,38 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: KeyboardDelegate {
+
     func didSelectKey(key: String) {
-        print(key)
+        
+        // Example of how to insert a letter to the textView
+        let randomRange = 0...mainView.dottedTextView.numberOfSlots - 1
+        mainView.dottedTextView.insertLetter(at: randomRange.randomElement() ?? 0, letter: key.first!)
+        
+        // Example of how to remove the life.
         mainView.livesView.removeOneLive()
+        
+        // Example of calling alert
+        // coordinator?.showAlert(title: R.string.alert.checkLetter(), type: .confirmLetter)
     }
 }
 
-extension GameViewController: UIViewControllerTransitioningDelegate {
 
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return AnimationController(animationDuration: 0.33, animationType: .present)
+extension GameViewController: LivesViewDelegate {
+    func didLoseAllLives() {
+        // Example of game over
+        print("you Lost!")
     }
     
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return AnimationController(animationDuration: 0.33, animationType: .dismiss)
-    }
+}
 
+
+extension GameViewController: AlertDelegate {
+    func didTapConfirmButton(type: TypeAlert?) {
+        // Confirm button from alert
+    }
+    
+    func didTapCancelButton(type: TypeAlert?) {
+        // Confirm button from alert
+    }
+ 
 }
