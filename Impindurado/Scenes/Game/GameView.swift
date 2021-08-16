@@ -41,7 +41,31 @@ class GameView: UIView {
     
     let backgroundImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = R.image.game_background()
+        imageView.image = R.image.background_gradient()
+        return imageView
+    }()
+    
+    let groundImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.ground()
+        return imageView
+    }()
+    
+    let treeImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.tree()
+        return imageView
+    }()
+
+    let ropeImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.rope()
+        return imageView
+    }()
+
+    let stickmanImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.stickman6()
         return imageView
     }()
     
@@ -80,6 +104,10 @@ extension GameView: ViewCode {
 
     func setupViewHierarchy() {
         addSubview(backgroundImage)
+        addSubview(treeImage)
+        addSubview(ropeImage)
+        addSubview(stickmanImage)
+        addSubview(groundImage)
         addSubview(backButton)
         addSubview(microfoneButton)
         addSubview(scoreLabel)
@@ -90,8 +118,35 @@ extension GameView: ViewCode {
     }
 
     func setupConstraints() {
+
         backgroundImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+
+        groundImage.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(UIScreen.main.bounds.height/2.5)
+        }
+
+        treeImage.snp.makeConstraints { make in
+            make.bottom.equalTo(groundImage.snp.top).offset(64)
+            make.leading.equalToSuperview().inset(24)
+            make.height.equalTo(UIScreen.main.bounds.height/2.5 + 24)
+            make.width.equalTo(UIScreen.main.bounds.width/4)
+        }
+
+        ropeImage.snp.makeConstraints { make in
+            make.leading.equalTo(treeImage.snp.trailing).offset(-32)
+            make.top.equalTo(treeImage.snp.top).offset((UIScreen.main.bounds.height/8 + 12))
+            make.height.equalTo(32)
+            make.width.equalTo(16)
+        }
+
+        stickmanImage.snp.makeConstraints { make in
+            make.centerX.equalTo(ropeImage).offset(4)
+            make.top.equalTo(ropeImage.snp.bottom)
+            make.height.equalTo(64)
+            make.width.equalTo(32)
         }
 
         scoreLabel.snp.makeConstraints { make in
@@ -116,7 +171,7 @@ extension GameView: ViewCode {
 
         keyboardView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(24)
-            make.bottom.equalToSuperview().inset(64)
+            make.bottom.equalTo(snp.bottomMargin).inset(24)
         }
 
         categoryLabel.snp.makeConstraints { make in
