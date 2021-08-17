@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
     let mainView = GameView()
     var viewModel: GameViewModel?
     var coordinator: GameCoordinator?
+    let model = WordsModel()
 
     init(viewModel: GameViewModel, coordinator: GameCoordinator) {
         self.viewModel = viewModel
@@ -34,6 +35,9 @@ class GameViewController: UIViewController {
         mainView.keyboardView.delegate = self
         mainView.livesView.delegate = self
         mainView.backButton.addTarget(self, action: #selector(didSelectBackButton), for: .touchUpInside)
+        
+        model.setNewWord()
+        mainView.dottedTextView.configure(numberOfSlots: model.getWordNumberOfLetters())
     }
 
     @objc func didSelectBackButton() {
@@ -45,15 +49,27 @@ extension GameViewController: KeyboardDelegate {
 
     func didSelectKey(key: String) {
         
-        // Example of how to insert a letter to the textView
-        let randomRange = 0...mainView.dottedTextView.numberOfSlots - 1
-        mainView.dottedTextView.insertLetter(at: randomRange.randomElement() ?? 0, letter: key.first!)
+        let positions = model.positionsForThis(letter: key)
+        if positions.isEmpty {
+            // Example of how to remove the life.
+            mainView.livesView.removeOneLive()
+        }
+
+        for position in positions {
+            mainView.dottedTextView.insertLetter(at: position, letter: key)
+        }
         
-        // Example of how to remove the life.
-        mainView.livesView.removeOneLive()
-        
-        // Example of calling alert
-        // coordinator?.showAlert(title: R.string.alert.checkLetter(), type: .confirmLetter)
+        let labels = mainView.dottedTextView.labels.filter {$0.text?.isEmpty == false }
+        let texts = labels.map { String(($0.text!.first!)) }
+
+        if model.isWordComplete(with: texts) {
+            if model.isUserWin() {
+               
+            } else {
+                // Player has finished the first word stage.
+                // TODO: Coordinate to another
+            }
+        }
     }
 }
 

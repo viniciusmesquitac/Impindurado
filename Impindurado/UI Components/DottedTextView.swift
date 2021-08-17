@@ -9,7 +9,7 @@ import UIKit
 
 class DottedTextView: UIView {
 
-    private var labels: [UILabel] = []
+    public var labels: [UILabel] = []
     private var spacing: CGFloat
     private var height: CGFloat
     public  var numberOfSlots: Int
@@ -33,9 +33,9 @@ class DottedTextView: UIView {
         stackView = createTextFieldStackView(with: numberOfSlots)
     }
     
-    public func insertLetter(at index: Int, letter: Character) {
+    public func insertLetter(at index: Int, letter: String) {
         let selectedLabel = labels[index]
-        selectedLabel.text = String(letter)
+        selectedLabel.text = letter
     }
     
     private func setupStackView() {
