@@ -34,6 +34,9 @@ class GameViewController: UIViewController {
         mainView.keyboardView.delegate = self
         mainView.livesView.delegate = self
         mainView.backButton.addTarget(self, action: #selector(didSelectBackButton), for: .touchUpInside)
+        
+        viewModel?.startGame()
+        mainView.dottedTextView.configure(numberOfSlots: viewModel?.numberOfLetters() ?? 0)
     }
 
     @objc func didSelectBackButton() {
@@ -44,16 +47,23 @@ class GameViewController: UIViewController {
 extension GameViewController: KeyboardDelegate {
 
     func didSelectKey(key: String) {
-        
-        // Example of how to insert a letter to the textView
-        let randomRange = 0...mainView.dottedTextView.numberOfSlots - 1
-        mainView.dottedTextView.insertLetter(at: randomRange.randomElement() ?? 0, letter: key.first!)
-        
-        // Example of how to remove the life.
-        mainView.livesView.removeOneLive()
-        
-        // Example of calling alert
-        // coordinator?.showAlert(title: R.string.alert.checkLetter(), type: .confirmLetter)
+        guard let positions = viewModel?.indexsOf(letter: key) else {
+            mainView.livesView.removeOneLive()
+            return
+        }
+
+        for position in positions {
+            mainView.dottedTextView.insertLetter(at: position, letter: key)
+        }
+
+        if viewModel?.isCompletedWord(with: mainView.dottedTextView.labels) == true {
+            if viewModel?.isUserWin() == true {
+               print("Ganhou!!!")
+            } else {
+                // Player has finished the first word stage.
+                // TODO: Coordinate to another
+            }
+        }
     }
 }
 
@@ -75,5 +85,4 @@ extension GameViewController: AlertDelegate {
     func didTapCancelButton(type: TypeAlert?) {
         // Confirm button from alert
     }
- 
 }
