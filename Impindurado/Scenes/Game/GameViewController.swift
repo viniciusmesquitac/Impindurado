@@ -14,7 +14,6 @@ class GameViewController: UIViewController {
     let mainView = GameView()
     var viewModel: GameViewModel?
     var coordinator: GameCoordinator?
-    //let model = WordsModel()
 
     init(viewModel: GameViewModel, coordinator: GameCoordinator) {
         self.viewModel = viewModel
@@ -57,8 +56,8 @@ extension GameViewController: KeyboardDelegate {
             mainView.dottedTextView.insertLetter(at: position, letter: key)
         }
 
-        if viewModel!.isCompletedWord(with: mainView.dottedTextView.labels) {
-            if viewModel!.isUserWin() {
+        if viewModel?.isCompletedWord(with: mainView.dottedTextView.labels) == true {
+            if viewModel?.isUserWin() == true {
                print("Ganhou!!!")
             } else {
                 // Player has finished the first word stage.
