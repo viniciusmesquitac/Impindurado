@@ -12,7 +12,7 @@ import UIKit
 class GameViewController: UIViewController {
 
     let mainView = GameView()
-    var viewModel: GameViewModel?
+    var viewModel: GameViewModel
     var coordinator: GameCoordinator?
     let model = WordsModel()
 
