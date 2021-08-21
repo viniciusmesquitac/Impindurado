@@ -12,9 +12,9 @@ import UIKit
 class GameViewController: UIViewController {
 
     let mainView = GameView()
-    var viewModel: GameViewModel
+    var viewModel: GameViewModel?
     var coordinator: GameCoordinator?
-    let model = WordsModel()
+    //let model = WordsModel()
 
     init(viewModel: GameViewModel, coordinator: GameCoordinator) {
         self.viewModel = viewModel
@@ -36,8 +36,8 @@ class GameViewController: UIViewController {
         mainView.livesView.delegate = self
         mainView.backButton.addTarget(self, action: #selector(didSelectBackButton), for: .touchUpInside)
         
-        model.setNewWord()
-        mainView.dottedTextView.configure(numberOfSlots: model.getWordNumberOfLetters())
+        viewModel?.startGame()
+        mainView.dottedTextView.configure(numberOfSlots: viewModel?.numberOfLetters() ?? 0)
     }
 
     @objc func didSelectBackButton() {
@@ -48,23 +48,18 @@ class GameViewController: UIViewController {
 extension GameViewController: KeyboardDelegate {
 
     func didSelectKey(key: String) {
-        
-        let positions = model.positionsForThis(letter: key)
-        if positions.isEmpty {
-            // Example of how to remove the life.
+        guard let positions = viewModel?.indexsOf(letter: key) else {
             mainView.livesView.removeOneLive()
+            return
         }
 
         for position in positions {
             mainView.dottedTextView.insertLetter(at: position, letter: key)
         }
-        
-        let labels = mainView.dottedTextView.labels.filter {$0.text?.isEmpty == false }
-        let texts = labels.map { String(($0.text!.first!)) }
 
-        if model.isWordComplete(with: texts) {
-            if model.isUserWin() {
-               
+        if viewModel!.isCompletedWord(with: mainView.dottedTextView.labels) {
+            if viewModel!.isUserWin() {
+               print("Ganhou!!!")
             } else {
                 // Player has finished the first word stage.
                 // TODO: Coordinate to another
@@ -91,5 +86,4 @@ extension GameViewController: AlertDelegate {
     func didTapCancelButton(type: TypeAlert?) {
         // Confirm button from alert
     }
- 
 }

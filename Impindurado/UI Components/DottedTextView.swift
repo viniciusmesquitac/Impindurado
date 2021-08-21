@@ -54,7 +54,7 @@ class DottedTextView: UIView {
         stackView.distribution = .fillEqually
         stackView.spacing = spacing
 
-        for _ in 1...count {
+        for _ in 0..<count {
             let (view, label) = createContentView()
             stackView.addArrangedSubview(view)
             labels.append(label)
