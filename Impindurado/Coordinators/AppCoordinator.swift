@@ -25,12 +25,17 @@ final class AppCoordinator: Coordinator {
     func start() {
         window.rootViewController = self.navigationController
         window.makeKeyAndVisible()
-        coordinateToMenu()
+        launchScreen()
     }
 
-    private func coordinateToMenu() {
+    func coordinateToMenu() {
         let menu = MenuCoordinator(navigationController: navigationController)
         coordinate(to: menu)
+    }
+
+    private func launchScreen() {
+        let launchScreen = LaunchScreenViewController(coordinator: self)
+        navigationController.pushViewController(launchScreen, animated: false)
     }
 
 }

@@ -13,7 +13,7 @@ class GameResultViewController: UIViewController {
 
     let mainView = GameResultView()
     var viewModel: GameResultViewModel?
-    var coordinator: GameCoordinator?
+    weak var coordinator: GameCoordinator?
 
     init(viewModel: GameResultViewModel, coordinator: GameCoordinator) {
         self.viewModel = viewModel

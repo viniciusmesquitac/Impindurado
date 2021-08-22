@@ -40,6 +40,7 @@ class GameCoordinator: Coordinator {
     }
     
     func returnToMenu() {
+        rootViewController = nil
         navigationController.dismiss(animated: false)
     }
 }

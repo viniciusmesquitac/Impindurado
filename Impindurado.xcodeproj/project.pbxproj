@@ -18,6 +18,7 @@
 		810C14EF26D293E300B70707 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C14EE26D293E300B70707 /* AppLabel.swift */; };
 		810C14F126D2940900B70707 /* AppLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C14F026D2940900B70707 /* AppLabelStyle.swift */; };
 		810C14F526D2B17500B70707 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C14F426D2B17500B70707 /* FontSize.swift */; };
+		810C14F826D2D08D00B70707 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C14F726D2D08D00B70707 /* LaunchScreenViewController.swift */; };
 		8126D38126C80F5400F4681C /* DottedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126D38026C80F5400F4681C /* DottedTextView.swift */; };
 		8126D38326C8210C00F4681C /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126D38226C8210C00F4681C /* AlertViewController.swift */; };
 		8126D38526C8327200F4681C /* alert.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8126D38426C8327200F4681C /* alert.strings */; };
@@ -106,6 +107,7 @@
 		810C14EE26D293E300B70707 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		810C14F026D2940900B70707 /* AppLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabelStyle.swift; sourceTree = "<group>"; };
 		810C14F426D2B17500B70707 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
+		810C14F726D2D08D00B70707 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		8126D38026C80F5400F4681C /* DottedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedTextView.swift; sourceTree = "<group>"; };
 		8126D38226C8210C00F4681C /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		8126D38426C8327200F4681C /* alert.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = alert.strings; sourceTree = "<group>"; };
@@ -194,6 +196,15 @@
 				810C14E226D1CDA400B70707 /* GameResultViewModel.swift */,
 			);
 			path = Result;
+			sourceTree = "<group>";
+		};
+		810C14F626D2CF5D00B70707 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				81F5C35D26C1934F00C81C9A /* LaunchScreen.storyboard */,
+				810C14F726D2D08D00B70707 /* LaunchScreenViewController.swift */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		8180A59F26C2BA4D0057CF10 /* UI Components */ = {
@@ -308,7 +319,6 @@
 				81F5C38926C1DB4A00C81C9A /* Scenes */,
 				81F5C38226C1D9CA00C81C9A /* Coordinators */,
 				8180A5A826C2CEDE0057CF10 /* Shared */,
-				81F5C35D26C1934F00C81C9A /* LaunchScreen.storyboard */,
 				81F5C36026C1934F00C81C9A /* Info.plist */,
 			);
 			path = Impindurado;
@@ -346,6 +356,7 @@
 		81F5C38926C1DB4A00C81C9A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				810C14F626D2CF5D00B70707 /* LaunchScreen */,
 				810C14DF26D1CD8800B70707 /* Result */,
 				8180A5BC26C2E33F0057CF10 /* Game */,
 				81F5C38B26C1DB5A00C81C9A /* Menu */,
@@ -675,6 +686,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				810C14F826D2D08D00B70707 /* LaunchScreenViewController.swift in Sources */,
 				8180A5C226C2E3590057CF10 /* GameViewModel.swift in Sources */,
 				8180A5CF26C49BC50057CF10 /* GameCoordinator.swift in Sources */,
 				8180A5D526C579790057CF10 /* LivesView.swift in Sources */,
