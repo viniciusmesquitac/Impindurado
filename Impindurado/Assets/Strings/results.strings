@@ -1,0 +1,12 @@
+/* 
+  results.strings
+  Impindurado
+
+  Created by Vinicius Mesquita on 21/08/21.
+  
+*/
+
+
+"won" = "DEI VALOR";
+"lose" = "SE LASCOU";
+"score" = "PONTUAÇÃO FULEIRA:";
