@@ -14,7 +14,10 @@
 		810C14E526D1CDA400B70707 /* GameResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C14E226D1CDA400B70707 /* GameResultViewModel.swift */; };
 		810C14E726D1DA7000B70707 /* results.strings in Resources */ = {isa = PBXBuildFile; fileRef = 810C14E626D1DA7000B70707 /* results.strings */; };
 		810C14E926D1DAD400B70707 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C14E826D1DAD400B70707 /* Spacing.swift */; };
-		810C14ED26D1DF7900B70707 /* UILabel+Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C14EC26D1DF7900B70707 /* UILabel+Spacing.swift */; };
+		810C14ED26D1DF7900B70707 /* UILabel+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C14EC26D1DF7900B70707 /* UILabel+Attributes.swift */; };
+		810C14EF26D293E300B70707 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C14EE26D293E300B70707 /* AppLabel.swift */; };
+		810C14F126D2940900B70707 /* AppLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C14F026D2940900B70707 /* AppLabelStyle.swift */; };
+		810C14F526D2B17500B70707 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810C14F426D2B17500B70707 /* FontSize.swift */; };
 		8126D38126C80F5400F4681C /* DottedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126D38026C80F5400F4681C /* DottedTextView.swift */; };
 		8126D38326C8210C00F4681C /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126D38226C8210C00F4681C /* AlertViewController.swift */; };
 		8126D38526C8327200F4681C /* alert.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8126D38426C8327200F4681C /* alert.strings */; };
@@ -99,7 +102,10 @@
 		810C14E226D1CDA400B70707 /* GameResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewModel.swift; sourceTree = "<group>"; };
 		810C14E626D1DA7000B70707 /* results.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = results.strings; sourceTree = "<group>"; };
 		810C14E826D1DAD400B70707 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
-		810C14EC26D1DF7900B70707 /* UILabel+Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Spacing.swift"; sourceTree = "<group>"; };
+		810C14EC26D1DF7900B70707 /* UILabel+Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Attributes.swift"; sourceTree = "<group>"; };
+		810C14EE26D293E300B70707 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
+		810C14F026D2940900B70707 /* AppLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabelStyle.swift; sourceTree = "<group>"; };
+		810C14F426D2B17500B70707 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		8126D38026C80F5400F4681C /* DottedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedTextView.swift; sourceTree = "<group>"; };
 		8126D38226C8210C00F4681C /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		8126D38426C8327200F4681C /* alert.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = alert.strings; sourceTree = "<group>"; };
@@ -200,7 +206,10 @@
 				8180A5D426C579790057CF10 /* LivesView.swift */,
 				8126D38026C80F5400F4681C /* DottedTextView.swift */,
 				810C14E826D1DAD400B70707 /* Spacing.swift */,
-				810C14EC26D1DF7900B70707 /* UILabel+Spacing.swift */,
+				810C14EC26D1DF7900B70707 /* UILabel+Attributes.swift */,
+				810C14EE26D293E300B70707 /* AppLabel.swift */,
+				810C14F026D2940900B70707 /* AppLabelStyle.swift */,
+				810C14F426D2B17500B70707 /* FontSize.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -678,11 +687,14 @@
 				81F5C3B926C1E94700C81C9A /* ViewCode.swift in Sources */,
 				8180A5C126C2E3590057CF10 /* GameView.swift in Sources */,
 				8126D38726CA9E4A00F4681C /* Device.swift in Sources */,
-				810C14ED26D1DF7900B70707 /* UILabel+Spacing.swift in Sources */,
+				810C14EF26D293E300B70707 /* AppLabel.swift in Sources */,
+				810C14ED26D1DF7900B70707 /* UILabel+Attributes.swift in Sources */,
 				81F5C3B626C1E85D00C81C9A /* MenuView.swift in Sources */,
+				810C14F126D2940900B70707 /* AppLabelStyle.swift in Sources */,
 				810C14E926D1DAD400B70707 /* Spacing.swift in Sources */,
 				81F5C3BB26C1E96E00C81C9A /* ViewModel.swift in Sources */,
 				810C14E526D1CDA400B70707 /* GameResultViewModel.swift in Sources */,
+				810C14F526D2B17500B70707 /* FontSize.swift in Sources */,
 				D13304BE26C497B4001D563C /* JSONDataModel.swift in Sources */,
 				81F5C38626C1DA1200C81C9A /* AppCoordinator.swift in Sources */,
 				8126D38126C80F5400F4681C /* DottedTextView.swift in Sources */,

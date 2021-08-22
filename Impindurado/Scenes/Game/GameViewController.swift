@@ -47,6 +47,7 @@ class GameViewController: UIViewController {
 extension GameViewController: KeyboardDelegate {
 
     func didSelectKey(key: String) {
+        coordinator?.result(.won, score: 0.0)
         guard let positions = viewModel?.indexsOf(letter: key) else {
             mainView.livesView.removeOneLive()
             return

@@ -23,17 +23,17 @@ class GameResultView: UIView {
         return imageView
     }()
     
-    let resultLabel: UILabel = {
-        let label = UILabel()
+    let resultLabel: AppLabel = {
+        let label = AppLabel()
         label.textAlignment = .center
         label.numberOfLines = -1
-        label.font = R.font.nes2(size: 64.0)
+        label.font = R.font.nes2(size: FontSize.largeTitle.rawValue)
         return label
     }()
     
     let scoreLabel: UILabel = {
         let label = UILabel()
-        label.font = R.font.nes2(size: 24.0)
+        label.font = R.font.nes2(size: FontSize.normal.rawValue)
         return label
     }()
 
@@ -61,15 +61,29 @@ class GameResultView: UIView {
     }
 
     private func setupWonLayout() {
+        resultLabel.setup(with: .neon(shadowColor: .lightGreen))
         resultLabel.text = R.string.results.won().replacingOccurrences(of: " ", with: "\n")
         resultLabel.textColor = .lightGreen
         backgroundImage.image = R.image.win_background()
+        resultLabel.outilined(oulineColor: .customGreen, foregroundColor: .lightGreen, strokeWidth: -1)
+        setSpacingAttributtedText()
     }
 
     private func setupLoseLayout() {
-        resultLabel.text = R.string.results.lose().replacingOccurrences(of: " ", with: "\n")
-        resultLabel.textColor = .lightPink
+        resultLabel.setup(with: .neon(shadowColor: .lightPink))
         backgroundImage.image = R.image.lose_background()
+        resultLabel.text = R.string.results.lose().replacingOccurrences(of: " ", with: "\n")
+        resultLabel.outilined(oulineColor: .customPink, foregroundColor: .lightPink, strokeWidth: -1)
+        setSpacingAttributtedText()
+    }
+
+    private func setSpacingAttributtedText() {
+        guard let attributedText = resultLabel.attributedText else { return }
+        let mutableAttributedString = NSMutableAttributedString(attributedString: attributedText)
+        resultLabel.spaced(with: 0.6, attributedString: mutableAttributedString)
+        resultLabel.snp.makeConstraints { make in
+            make.height.equalTo(FontSize.largeTitle.rawValue * 2)
+        }
     }
 }
 
