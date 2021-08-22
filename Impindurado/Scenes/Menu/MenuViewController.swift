@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GameKit
 
 class MenuViewController: UIViewController {
 
@@ -61,6 +62,14 @@ class MenuViewController: UIViewController {
     }
 
     @objc func didSelectLeaderboardButton() {
-        // TODO: Send to LeaderBoard
+        coordinator?.showLeaderboard()
     }
+}
+
+extension MenuViewController: GKGameCenterControllerDelegate {
+    
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        dismiss(animated: true)
+    }
+    
 }

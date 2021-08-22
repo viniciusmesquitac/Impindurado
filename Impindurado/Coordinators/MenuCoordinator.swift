@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GameKit
 
 class MenuCoordinator: Coordinator {
 
@@ -33,5 +34,13 @@ class MenuCoordinator: Coordinator {
     func gameScene() {
         let coordinator = GameCoordinator(navigationController: rootNavigationController)
         coordinator.start()
+    }
+    
+    func showLeaderboard() {
+        let gamecenter = GKGameCenterViewController()
+        if let controller = rootNavigationController.viewControllers.first as? MenuViewController {
+            gamecenter.gameCenterDelegate = controller
+        }
+        rootNavigationController.present(gamecenter, animated: true)
     }
 }
