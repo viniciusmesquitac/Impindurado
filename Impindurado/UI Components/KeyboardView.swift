@@ -68,6 +68,10 @@ extension KeyboardView: ViewCode {
                 stackView.addArrangedSubview(keyLineStackView)
             }
             let button = createButton(key)
+            
+            button.isAccessibilityElement = true
+            button.accessibilityLabel = "Letra \(key)"
+
             keyLineStackView.addArrangedSubview(button)
         }
     }

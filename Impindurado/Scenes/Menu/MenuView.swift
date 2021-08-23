@@ -21,6 +21,10 @@ class MenuView: UIView {
     lazy var soundButton: SoundButton = {
         let button = SoundButton()
         button.tintColor = .customBrown
+        
+        button.isAccessibilityElement = true
+        button.accessibilityLabel = "Som"
+        button.accessibilityHint = "Som desativado"
         return button
     }()
 
@@ -28,6 +32,9 @@ class MenuView: UIView {
         let button = AppButton(style: .normal)
         button.setTitle(R.string.button.play(), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.isAccessibilityElement = true
+        button.accessibilityHint = "Inicia o jogo"
         return button
     }()
 
@@ -35,6 +42,9 @@ class MenuView: UIView {
         let button = AppButton(style: .normal)
         button.setTitle(R.string.button.leaderboard(), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.isAccessibilityElement = true
+        button.accessibilityHint = "Mostra o ranking de pontuações"
         return button
     }()
     

@@ -21,6 +21,11 @@ class GameView: UIView {
         let button = UIButton()
         button.setImage(R.image.ic_microfone(), for: .normal)
         button.tintColor = .white
+        
+        button.isAccessibilityElement = true
+        button.accessibilityLabel = "Ditado"
+        button.accessibilityHint = "Fale o nome da letra que você quer verificar"
+
         return button
     }()
 
@@ -28,6 +33,9 @@ class GameView: UIView {
         let button = UIButton()
         button.setImage(R.image.ic_back(), for: .normal)
         button.tintColor = .white
+        
+        button.isAccessibilityElement = true
+        button.accessibilityLabel = "Voltar ao menu inicial"
         return button
     }()
 
@@ -36,6 +44,9 @@ class GameView: UIView {
         label.text = "SCORE"
         label.font = R.font.adventureSubtitles(size: 24)
         label.textColor = .white
+        
+       label.isAccessibilityElement = true
+       label.accessibilityHint = "A pontuação atual é 50"
         return label
     }()
     
@@ -74,11 +85,19 @@ class GameView: UIView {
         label.text = "Categoria"
         label.font = R.font.pacificoRegular(size: 18)
         label.textColor = .white
+        
+        label.isAccessibilityElement = true
+        label.accessibilityHint = "A categoria da palavra é \(label.text ?? "Objetos")"
         return label
     }()
     
     let dottedTextView: DottedTextView = {
         let textView = DottedTextView(numberOfSlots: 10)
+        
+        print(textView.accessibilityActivate())
+        textView.isAccessibilityElement = true
+        textView.accessibilityLabel = "Essa palavra possui \(textView.numberOfSlots) letras"
+//        textView.accessibilityHint = "O número de letras é \(textView.numberOfSlots)"
         return textView
     }()
 
