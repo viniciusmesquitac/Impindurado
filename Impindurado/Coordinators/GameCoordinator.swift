@@ -30,4 +30,16 @@ class GameCoordinator: Coordinator {
         controller.modalTransitionStyle = .crossDissolve
         rootViewController?.present(controller, animated: true)
     }
+
+    func result(_ gameResult: GameResult, score: Float) {
+        let viewModel = GameResultViewModel(result: gameResult, score: score)
+        let controller = GameResultViewController(viewModel: viewModel, coordinator: self)
+        controller.modalTransitionStyle = .crossDissolve
+        controller.modalPresentationStyle = .overFullScreen
+        rootViewController?.present(controller, animated: true)
+    }
+    
+    func returnToMenu() {
+        navigationController.dismiss(animated: false)
+    }
 }
