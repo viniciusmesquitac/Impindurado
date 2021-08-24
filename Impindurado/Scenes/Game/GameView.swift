@@ -14,6 +14,10 @@ class GameView: UIView {
 
     let livesView: LivesView = {
         let view = LivesView(totalNumberOfLives: 6)
+        
+        view.isAccessibilityElement = true
+        view.accessibilityLabel = "Restam 6 vidas"
+        // "Restam 6 vidas" ou "Você tem 6 de 6 vidas"?
         return view
     }()
 
@@ -77,6 +81,9 @@ class GameView: UIView {
     let stickmanImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = R.image.stickman6()
+        
+        imageView.isAccessibilityElement = true
+        imageView.accessibilityLabel = "Ainda não há membros desenhados!"
         return imageView
     }()
     
@@ -94,7 +101,6 @@ class GameView: UIView {
     let dottedTextView: DottedTextView = {
         let textView = DottedTextView(numberOfSlots: 10)
         
-        print(textView.accessibilityActivate())
         textView.isAccessibilityElement = true
         textView.accessibilityLabel = "Essa palavra possui \(textView.numberOfSlots) letras"
 //        textView.accessibilityHint = "O número de letras é \(textView.numberOfSlots)"

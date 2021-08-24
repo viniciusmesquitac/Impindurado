@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GameViewController: UIViewController {
 
@@ -34,6 +35,8 @@ class GameViewController: UIViewController {
         mainView.keyboardView.delegate = self
         mainView.livesView.delegate = self
         mainView.backButton.addTarget(self, action: #selector(didSelectBackButton), for: .touchUpInside)
+        
+        speechInfoWord(numberOfletters: 10)
     }
 
     @objc func didSelectBackButton() {
@@ -76,4 +79,16 @@ extension GameViewController: AlertDelegate {
         // Confirm button from alert
     }
  
+}
+
+extension GameViewController {
+    func speechInfoWord(numberOfletters: Int) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            let utterance = AVSpeechUtterance(string: "A palavra possui \(numberOfletters) letras")
+            utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+            
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(utterance)
+        }
+    }
 }

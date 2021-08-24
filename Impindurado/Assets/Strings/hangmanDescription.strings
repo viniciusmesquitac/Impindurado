@@ -5,4 +5,10 @@
 //  Created by Brena Amorim on 23/08/21.
 //
 
-import Foundation
+"nenhum"  = "Ainda não há membros desenhados!";
+"membro1" = "Cabeça desenhada";
+"membro2" = "Cabeça e tronco desenhados";
+"membro3" = "Cabeça, tronco e braço direito desenhados";
+"membro4" = "Cabeça, tronco e dois braços desenhados";
+"membro5" = "Cabeça, tronco, dois braços e perna direita desenhados";
+"membro6" = "Cabeça, tronco, dois braços e duas pernas desenhados";
