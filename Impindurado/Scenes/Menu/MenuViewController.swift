@@ -36,6 +36,9 @@ class MenuViewController: UIViewController {
     }
     
     func setupOutput() {
+        DispatchQueue.main.async {
+            self.mainView.performAnimation()
+        }
         Sound.play(file: MenuSound.background.rawValue)
     }
 
