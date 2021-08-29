@@ -50,7 +50,7 @@ class GameView: UIView {
         label.textColor = .white
         
        label.isAccessibilityElement = true
-       label.accessibilityHint = "A pontuação atual é 50"
+       label.accessibilityHint = "A pontuação atual é 0"
         return label
     }()
     
@@ -94,7 +94,6 @@ class GameView: UIView {
         label.textColor = .white
         
         label.isAccessibilityElement = true
-        label.accessibilityHint = "A categoria da palavra é \(label.text ?? "Objetos")"
         return label
     }()
     
@@ -102,7 +101,6 @@ class GameView: UIView {
         let textView = DottedTextView(numberOfSlots: 10)
         
         textView.isAccessibilityElement = true
-        textView.accessibilityLabel = "Essa palavra possui \(textView.numberOfSlots) letras"
         return textView
     }()
 

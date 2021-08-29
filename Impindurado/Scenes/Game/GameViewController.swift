@@ -35,6 +35,12 @@ class GameViewController: UIViewController {
         mainView.keyboardView.delegate = self
         mainView.livesView.delegate = self
         mainView.backButton.addTarget(self, action: #selector(didSelectBackButton), for: .touchUpInside)
+        
+        viewModel?.startGame()
+        mainView.dottedTextView.configure(numberOfSlots: viewModel?.numberOfLetters() ?? 0)
+        
+        guard let viewModel = viewModel else { return }
+        configureAccessibility(numberOfLetters: viewModel.numberOfLetters(), category: "Objeto")
     }
 
     @objc func didSelectBackButton() {
@@ -45,18 +51,25 @@ class GameViewController: UIViewController {
 extension GameViewController: KeyboardDelegate {
 
     func didSelectKey(key: String) {
-
         readingOrderChangedKeyboard()
+        coordinator?.result(.won, score: 0.0)
+        guard let positions = viewModel?.indexsOf(letter: key) else {
+            mainView.livesView.removeOneLive()
+            return
+        }
 
-        // Example of how to insert a letter to the textView
-        let randomRange = 0...mainView.dottedTextView.numberOfSlots - 1
-        mainView.dottedTextView.insertLetter(at: randomRange.randomElement() ?? 0, letter: key.first!)
-        
-        // Example of how to remove the life.
-        mainView.livesView.removeOneLive()
-        
-        // Example of calling alert
-        // coordinator?.showAlert(title: R.string.alert.checkLetter(), type: .confirmLetter)
+        for position in positions {
+            mainView.dottedTextView.insertLetter(at: position, letter: key)
+        }
+
+        if viewModel?.isCompletedWord(with: mainView.dottedTextView.labels) == true {
+            if viewModel?.isUserWin() == true {
+               print("Ganhou!!!")
+            } else {
+                // Player has finished the first word stage.
+                // TODO: Coordinate to another
+            }
+        }
     }
 }
 
@@ -78,13 +91,17 @@ extension GameViewController: AlertDelegate {
     func didTapCancelButton(type: TypeAlert?) {
         // Confirm button from alert
     }
- 
 }
 
 extension GameViewController {
-    func speechInfoWord(numberOfletters: Int) {
+    func configureAccessibility(numberOfLetters: Int, category: String) {
+        mainView.dottedTextView.accessibilityLabel = "Essa palavra possui \(numberOfLetters) letras"
+        mainView.categoryLabel.accessibilityLabel = "A categoria é \(category)"
+    }
+    
+    func speechInfoWord(text: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            let utterance = AVSpeechUtterance(string: "A palavra possui \(numberOfletters) letras")
+            let utterance = AVSpeechUtterance(string: text)
             utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
             
             let synthesizer = AVSpeechSynthesizer()

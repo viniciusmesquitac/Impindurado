@@ -34,8 +34,8 @@ class WordsModel {
     func positionsForThis(letter: String) -> [Int] {
         var indexs = [Int]()
         
-        for (index, letter) in actualWord.enumerated() {
-            if letter == letter {
+        for (index, wordLetter) in actualWord.enumerated() {
+            if letter.lowercased() == wordLetter.description {
                 indexs.append(index)
             }
         }
