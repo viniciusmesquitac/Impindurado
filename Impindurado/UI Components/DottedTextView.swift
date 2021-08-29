@@ -103,4 +103,17 @@ class DottedTextView: UIView {
 
         return (contentView, label)
     }
+    
+    func getLabelsText() -> String {
+        var letters = ""
+        for letter in labels {
+            if letter.text == nil {
+                letters.append(" espaço")
+            } else {
+                guard let text = letter.text else { return "" }
+                letters.append(" \(text)")
+            }
+        }
+        return letters
+    }
 }

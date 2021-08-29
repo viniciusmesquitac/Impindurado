@@ -35,8 +35,6 @@ class GameViewController: UIViewController {
         mainView.keyboardView.delegate = self
         mainView.livesView.delegate = self
         mainView.backButton.addTarget(self, action: #selector(didSelectBackButton), for: .touchUpInside)
-        
-        speechInfoWord(numberOfletters: 10)
     }
 
     @objc func didSelectBackButton() {
@@ -47,7 +45,9 @@ class GameViewController: UIViewController {
 extension GameViewController: KeyboardDelegate {
 
     func didSelectKey(key: String) {
-        
+
+        readingOrderChangedKeyboard()
+
         // Example of how to insert a letter to the textView
         let randomRange = 0...mainView.dottedTextView.numberOfSlots - 1
         mainView.dottedTextView.insertLetter(at: randomRange.randomElement() ?? 0, letter: key.first!)
@@ -90,5 +90,25 @@ extension GameViewController {
             let synthesizer = AVSpeechSynthesizer()
             synthesizer.speak(utterance)
         }
+    }
+    
+    func readingOrderChangedKeyboard() {
+        mainView.accessibilityElements = [
+            mainView.backButton,
+            mainView.scoreLabel,
+            mainView.microfoneButton,
+            mainView.livesView,
+            mainView.stickmanImage,
+            mainView.dottedTextView,
+            mainView.categoryLabel,
+            mainView.keyboardView
+        ]
+        UIAccessibility.post(notification: .layoutChanged, argument: mainView.keyboardView)
+    }
+    
+    func seeSlots(textView: DottedTextView) {
+        let letters = textView.getLabelsText()
+        
+        mainView.dottedTextView.accessibilityLabel = letters
     }
 }

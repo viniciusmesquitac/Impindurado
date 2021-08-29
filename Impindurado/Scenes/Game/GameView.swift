@@ -103,7 +103,6 @@ class GameView: UIView {
         
         textView.isAccessibilityElement = true
         textView.accessibilityLabel = "Essa palavra possui \(textView.numberOfSlots) letras"
-//        textView.accessibilityHint = "O número de letras é \(textView.numberOfSlots)"
         return textView
     }()
 
@@ -117,6 +116,7 @@ class GameView: UIView {
         self.backgroundColor = .brown
         setupViewHierarchy()
         setupConstraints()
+        configureAccessibilityElementsOrder()
     }
 
     required init?(coder: NSCoder) {
@@ -209,5 +209,17 @@ extension GameView: ViewCode {
             make.bottom.equalTo(categoryLabel.snp.top).offset(-8)
         }
     }
-
+    
+    func configureAccessibilityElementsOrder() {
+        accessibilityElements = [
+            dottedTextView,
+            backButton,
+            scoreLabel,
+            microfoneButton,
+            livesView,
+            stickmanImage,
+            categoryLabel,
+            keyboardView
+        ]
+    }
 }
