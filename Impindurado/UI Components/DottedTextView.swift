@@ -23,8 +23,7 @@ class DottedTextView: UIView {
         super.init(frame: .zero)
         self.setupStackView()
         
-        self.isAccessibilityElement = true
-//        self.configureAccessibility()
+        self.configureAccessibility()
         
     }
 
@@ -33,16 +32,7 @@ class DottedTextView: UIView {
     }
     
     func configureAccessibility() {
-        shouldGroupAccessibilityChildren = true
-        let numberOfLetters = numberOfSlots
-        var accessibilityLabel: [String] = []
-        
-        for position in 0...(numberOfLetters - 1) {
-//            labels[position].isAccessibilityElement = true
-//            labels[position].accessibilityLabel = "\(labels[position].text ?? "espaço")"
-            
-            accessibilityLabel.append(labels[position].text ?? "espaço")
-        }
+        self.isAccessibilityElement = true
     }
 
     public func configure(numberOfSlots: Int) {
@@ -53,10 +43,6 @@ class DottedTextView: UIView {
     public func insertLetter(at index: Int, letter: Character) {
         let selectedLabel = labels[index]
         selectedLabel.text = String(letter)
-        
-        // MARK:- Verificar acessibilidade nessa view!
-//        selectedLabel.isAccessibilityElement = true
-//        selectedLabel.accessibilityLabel = "Letra \(letter), na posição \(index + 1)"
     }
     
     private func setupStackView() {
@@ -81,8 +67,6 @@ class DottedTextView: UIView {
             labels.append(label)
         }
 
-        stackView.isAccessibilityElement = true
-
         return stackView
     }
 
@@ -91,9 +75,6 @@ class DottedTextView: UIView {
         label.textAlignment = .center
         label.font = R.font.pacificoRegular(size: 16)
         label.textColor = .white
-        
-        label.isAccessibilityElement = true
-        label.accessibilityLabel = "Letra A"
 
         return label
     }
@@ -107,9 +88,6 @@ class DottedTextView: UIView {
         line.clipsToBounds = true
         contentView.addSubview(label)
         contentView.addSubview(line)
-
-        contentView.isAccessibilityElement = true
-
         
         line.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
