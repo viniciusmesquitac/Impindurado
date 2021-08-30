@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     let mainView = GameView()
     var viewModel: GameViewModel?
     var coordinator: GameCoordinator?
+    private var keySelected: String?
 
     init(viewModel: GameViewModel, coordinator: GameCoordinator) {
         self.viewModel = viewModel
@@ -51,8 +52,12 @@ class GameViewController: UIViewController {
 extension GameViewController: KeyboardDelegate {
 
     func didSelectKey(key: String) {
+        coordinator?.showAlert(title: R.string.alert.checkLetter() + " \(key)?", type: .confirmLetter)
         readingOrderChangedKeyboard()
-        coordinator?.result(.won, score: 0.0)
+//        keySelected = key
+        
+//        coordinator?.result(.won, score: 0.0)
+//        guard let key = keySelected else { return }
         guard let positions = viewModel?.indexsOf(letter: key) else {
             mainView.livesView.removeOneLive()
             return
@@ -86,6 +91,16 @@ extension GameViewController: LivesViewDelegate {
 extension GameViewController: AlertDelegate {
     func didTapConfirmButton(type: TypeAlert?) {
         // Confirm button from alert
+        print("delegate")
+        switch type {
+        case .confirmLetter:
+            dismiss(animated: true, completion: nil)
+        case .tutorial:
+            print("tutorial")
+        case .none:
+            print("none")
+
+        }
     }
     
     func didTapCancelButton(type: TypeAlert?) {

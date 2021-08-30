@@ -51,14 +51,21 @@ class AlertViewController: UIViewController {
         button.setTitle("X", for: .normal)
         button.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
         button.tintColor = .white
+        
+        button.isAccessibilityElement = true
+        button.accessibilityLabel = "Não"
         return button
     }()
 
     let confirmButton: UIButton = {
         let button = UIButton()
-        button.setTitle("X", for: .normal)
+        button.setTitle("", for: .normal)
+        button.setImage(UIImage(systemName: "checkmark"), for: .normal)
         button.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
         button.tintColor = .white
+        
+        button.isAccessibilityElement = true
+        button.accessibilityLabel = "Sim"
         return button
     }()
     
@@ -84,6 +91,7 @@ class AlertViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.titleLabel.text = title
         self.type = type
+        configureAccessibilityElementsOrder()
     }
     
     required init?(coder: NSCoder) {
@@ -94,6 +102,9 @@ class AlertViewController: UIViewController {
         super.viewDidLoad()
         setupViewHierarchy()
         setupConstraints()
+        
+        confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
     }
     
     @objc func didTapConfirmButton() {
@@ -156,5 +167,13 @@ extension AlertViewController: ViewCode  {
             make.bottom.equalToSuperview()
             make.leading.equalTo(verticalLine.snp.trailing).inset(8)
         }
+    }
+    
+    func configureAccessibilityElementsOrder() {
+        accessibilityElements = [
+            titleLabel,
+            cancelButton,
+            confirmButton
+        ]
     }
 }
