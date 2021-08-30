@@ -91,14 +91,13 @@ extension GameViewController: LivesViewDelegate {
 extension GameViewController: AlertDelegate {
     func didTapConfirmButton(type: TypeAlert?) {
         // Confirm button from alert
-        print("delegate")
         switch type {
         case .confirmLetter:
             dismiss(animated: true, completion: nil)
         case .tutorial:
-            print("tutorial")
+            dismiss(animated: true, completion: nil)
         case .none:
-            print("none")
+            print("Type Alert invalid")
 
         }
     }
