@@ -50,7 +50,7 @@ class GameView: UIView {
         label.textColor = .white
         
        label.isAccessibilityElement = true
-       label.accessibilityHint = "A pontuação atual é 0"
+       label.accessibilityLabel = "A pontuação atual é 0"
         return label
     }()
     

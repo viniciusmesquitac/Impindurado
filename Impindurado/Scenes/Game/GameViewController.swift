@@ -143,4 +143,12 @@ extension GameViewController {
         
         mainView.dottedTextView.accessibilityLabel = letters
     }
+    
+    func updateScoreAccessibility(score: Int) {
+        mainView.scoreLabel.accessibilityLabel = "A pontuação atual é \(score)"
+    }
+    
+    func updateImageAccessibility(imageLabel: String) {
+        mainView.stickmanImage.accessibilityLabel = imageLabel
+    }
 }
