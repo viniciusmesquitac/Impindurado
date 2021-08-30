@@ -64,5 +64,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>O app transcreve suas respostas de áudio em forma de texto</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Ativar o microfone permite que o app detecte suas respostas</string>
 </dict>
 </plist>

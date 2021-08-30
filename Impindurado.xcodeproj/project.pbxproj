@@ -60,6 +60,7 @@
 		D1A4784A26D17BE900D5FFF3 /* Words.json in Resources */ = {isa = PBXBuildFile; fileRef = D1A4784926D17BE900D5FFF3 /* Words.json */; };
 		D1A51B6D26C5D76100E1A2DC /* WordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A51B6C26C5D76100E1A2DC /* WordsModel.swift */; };
 		E664DAFC26D4755300656FF3 /* hangmanDescription.strings in Sources */ = {isa = PBXBuildFile; fileRef = E664DAFB26D4755300656FF3 /* hangmanDescription.strings */; };
+		E682E29926DC7D8600493D9A /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E682E29826DC7D8600493D9A /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		D1A51B6C26C5D76100E1A2DC /* WordsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsModel.swift; sourceTree = "<group>"; };
 		D91A635BCD54A45890586B63 /* Pods-Impindurado-ImpinduradoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impindurado-ImpinduradoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Impindurado-ImpinduradoUITests/Pods-Impindurado-ImpinduradoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E664DAFB26D4755300656FF3 /* hangmanDescription.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = hangmanDescription.strings; sourceTree = "<group>"; };
+		E682E29826DC7D8600493D9A /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		F2C2C15A0C40E186AF55F9B2 /* Pods-Impindurado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impindurado.release.xcconfig"; path = "Target Support Files/Pods-Impindurado/Pods-Impindurado.release.xcconfig"; sourceTree = "<group>"; };
 		F77FF41DB93FE9EA130F15C4 /* Pods_ImpinduradoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImpinduradoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -261,6 +263,7 @@
 		8180A5BC26C2E33F0057CF10 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				E682E29826DC7D8600493D9A /* SpeechRecognizer.swift */,
 				8180A5BD26C2E3590057CF10 /* GameViewController.swift */,
 				8180A5BE26C2E3590057CF10 /* GameView.swift */,
 				8180A5BF26C2E3590057CF10 /* GameViewModel.swift */,
@@ -687,6 +690,7 @@
 				8180A5A726C2C50F0057CF10 /* AppButtonStyle.swift in Sources */,
 				8180A5B826C2D3150057CF10 /* R.generated.swift in Sources */,
 				8180A5A126C2BA720057CF10 /* SoundButton.swift in Sources */,
+				E682E29926DC7D8600493D9A /* SpeechRecognizer.swift in Sources */,
 				81F5C3B926C1E94700C81C9A /* ViewCode.swift in Sources */,
 				8180A5C126C2E3590057CF10 /* GameView.swift in Sources */,
 				8126D38726CA9E4A00F4681C /* Device.swift in Sources */,
