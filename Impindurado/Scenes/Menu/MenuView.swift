@@ -54,7 +54,20 @@ class MenuView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
+    private let logoSize = CGSize(width: 200, height: 200)
+    
+    func performAnimation() {
+        self.layoutIfNeeded()
+        UIView.animate(withDuration: 1.0, delay: .zero, options: [.repeat, .autoreverse]) {
+            self.appImageView.snp.remakeConstraints { make in
+                make.size.equalTo(self.logoSize)
+                make.centerY.equalToSuperview().multipliedBy(0.62)
+                make.centerX.equalToSuperview()
+            }
+            self.layoutIfNeeded()
+        }
+    }
 }
 
 extension MenuView: ViewCode {
@@ -81,20 +94,18 @@ extension MenuView: ViewCode {
 
         appImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().dividedBy(1.5)
-            make.size.equalTo(CGSize(width: 200, height: 200))
+            make.centerY.equalToSuperview().multipliedBy(0.5)
+            make.size.equalTo(self.logoSize)
         }
-    
-        NSLayoutConstraint.activate([
-            playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
-            playButton.topAnchor.constraint(equalTo: appImageView.bottomAnchor, constant: 24)
-        ])
 
-        NSLayoutConstraint.activate([
-            leaderBoardButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            leaderBoardButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
-            leaderBoardButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 24)
-        ])
+        playButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(24)
+        }
+
+        leaderBoardButton.snp.makeConstraints { make in
+            make.top.equalTo(playButton.snp.bottom).offset(24)
+            make.leading.trailing.equalToSuperview().inset(24)
+            make.bottom.equalToSuperview().inset(64)
+        }
     }
 }
