@@ -14,7 +14,7 @@ protocol AlertDelegate: AnyObject {
 
 enum TypeAlert {
     case tutorial
-    case confirmLetter
+    case confirmLetter(key: String)
 }
 
 class AlertViewController: UIViewController {
@@ -51,7 +51,6 @@ class AlertViewController: UIViewController {
         button.setTitle("X", for: .normal)
         button.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
         button.tintColor = .white
-        
         button.isAccessibilityElement = true
         button.accessibilityLabel = "Não"
         return button
@@ -102,13 +101,11 @@ class AlertViewController: UIViewController {
         super.viewDidLoad()
         setupViewHierarchy()
         setupConstraints()
-        
-        confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
-        cancelButton.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
     }
     
     @objc func didTapConfirmButton() {
         delegate?.didTapConfirmButton(type: type)
+        dismiss(animated: true)
     }
     
     @objc func didTapCancelButton() {
