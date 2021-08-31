@@ -61,11 +61,8 @@ class LivesView: UIView {
         
         if currentLives == .zero {
             delegate?.didLoseAllLives()
-//            speechInfoLives(type: .loseAll, numberOflives: 0)
-        } else {
-//            speechInfoLives(type: .loseOne, numberOflives: currentLives)
         }
-        
+
         if let imageView = lastLive as? UIImageView { imageView.image = R.image.life_lost() }
         
     }
@@ -79,42 +76,6 @@ extension LivesView: ViewCode {
     func setupConstraints() {
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-        }
-    }
-}
-
-extension LivesView {
-    
-    enum Lives {
-        case loseOne
-        case loseAll
-    }
-    
-    func speechInfoLives(type: Lives, numberOflives: Int) {
-        switch type {
-        case .loseOne:
-            var speech = ""
-            if numberOflives > 1 {
-                speech = "Você errou uma letra! Você tem \(numberOflives) vidas"
-            } else {
-                speech = "Você errou uma letra! Você tem \(numberOflives) vida"
-            }
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                let utterance = AVSpeechUtterance(string: speech)
-                utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
-                
-                let synthesizer = AVSpeechSynthesizer()
-                synthesizer.speak(utterance)
-            }
-        case .loseAll:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                let utterance = AVSpeechUtterance(string: "Você errou uma letra! Você perdeu o jogo")
-                utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
-                
-                let synthesizer = AVSpeechSynthesizer()
-                synthesizer.speak(utterance)
-            }
         }
     }
 }
