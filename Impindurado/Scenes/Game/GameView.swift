@@ -14,6 +14,10 @@ class GameView: UIView {
 
     let livesView: LivesView = {
         let view = LivesView(totalNumberOfLives: 6)
+        
+        view.isAccessibilityElement = true
+        view.accessibilityLabel = "Restam 6 vidas"
+        // "Restam 6 vidas" ou "Você tem 6 de 6 vidas"?
         return view
     }()
 
@@ -21,6 +25,11 @@ class GameView: UIView {
         let button = UIButton()
         button.setImage(R.image.ic_microfone(), for: .normal)
         button.tintColor = .white
+        
+        button.isAccessibilityElement = true
+        button.accessibilityLabel = "Ditado"
+        button.accessibilityHint = "Fale o nome da letra que você quer verificar"
+
         return button
     }()
 
@@ -28,6 +37,9 @@ class GameView: UIView {
         let button = UIButton()
         button.setImage(R.image.ic_back(), for: .normal)
         button.tintColor = .white
+        
+        button.isAccessibilityElement = true
+        button.accessibilityLabel = "Voltar ao menu inicial"
         return button
     }()
 
@@ -36,6 +48,9 @@ class GameView: UIView {
         label.text = "SCORE"
         label.font = R.font.adventureSubtitles(size: 24)
         label.textColor = .white
+        
+       label.isAccessibilityElement = true
+       label.accessibilityLabel = "A pontuação atual é 0"
         return label
     }()
     
@@ -66,6 +81,9 @@ class GameView: UIView {
     let stickmanImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = R.image.stickman6()
+        
+        imageView.isAccessibilityElement = true
+        imageView.accessibilityLabel = "Ainda não há membros desenhados!"
         return imageView
     }()
     
@@ -74,11 +92,15 @@ class GameView: UIView {
         label.text = "Categoria"
         label.font = R.font.pacificoRegular(size: 18)
         label.textColor = .white
+        
+        label.isAccessibilityElement = true
         return label
     }()
     
     let dottedTextView: DottedTextView = {
         let textView = DottedTextView(numberOfSlots: 10)
+        
+        textView.isAccessibilityElement = true
         return textView
     }()
 
@@ -92,6 +114,7 @@ class GameView: UIView {
         self.backgroundColor = .brown
         setupViewHierarchy()
         setupConstraints()
+        configureAccessibilityElementsOrder()
     }
 
     required init?(coder: NSCoder) {
@@ -184,5 +207,17 @@ extension GameView: ViewCode {
             make.bottom.equalTo(categoryLabel.snp.top).offset(-8)
         }
     }
-
+    
+    func configureAccessibilityElementsOrder() {
+        accessibilityElements = [
+            dottedTextView,
+            backButton,
+            scoreLabel,
+            microfoneButton,
+            livesView,
+            stickmanImage,
+            categoryLabel,
+            keyboardView
+        ]
+    }
 }

@@ -22,10 +22,17 @@ class DottedTextView: UIView {
         self.height = height
         super.init(frame: .zero)
         self.setupStackView()
+        
+        self.configureAccessibility()
+        
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureAccessibility() {
+        self.isAccessibilityElement = true
     }
 
     public func configure(numberOfSlots: Int) {
@@ -70,6 +77,7 @@ class DottedTextView: UIView {
         label.textAlignment = .center
         label.font = R.font.pacificoRegular(size: 16)
         label.textColor = .white
+
         return label
     }
     
@@ -82,7 +90,6 @@ class DottedTextView: UIView {
         line.clipsToBounds = true
         contentView.addSubview(label)
         contentView.addSubview(line)
-
         
         line.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
@@ -97,5 +104,18 @@ class DottedTextView: UIView {
         }
 
         return (contentView, label)
+    }
+    
+    func getLabelsText() -> String {
+        var letters = ""
+        for letter in labels {
+            if letter.text == nil {
+                letters.append(" espaço")
+            } else {
+                guard let text = letter.text else { return "" }
+                letters.append(" \(text)")
+            }
+        }
+        return letters
     }
 }

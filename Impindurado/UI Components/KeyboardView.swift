@@ -68,6 +68,10 @@ extension KeyboardView: ViewCode {
                 stackView.addArrangedSubview(keyLineStackView)
             }
             let button = createButton(key)
+
+            configureAccessibility(object: button, key: key)
+            configureAccessibilityElementsOrder(object: button)
+            
             keyLineStackView.addArrangedSubview(button)
         }
     }
@@ -101,4 +105,17 @@ extension KeyboardView: ViewCode {
         keyLineStackView.spacing = 4
         return keyLineStackView
     }
+}
+
+extension KeyboardView {
+
+    func configureAccessibility(object: NSObject, key: Alphabet) {
+        object.isAccessibilityElement = true
+        object.accessibilityLabel = "Letra \(key)"
+    }
+    
+    func configureAccessibilityElementsOrder(object: NSObject) {
+        accessibilityElements?.append(object)
+    }
+
 }

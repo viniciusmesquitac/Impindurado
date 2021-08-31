@@ -59,6 +59,7 @@
 		D13304BE26C497B4001D563C /* JSONDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13304BD26C497B4001D563C /* JSONDataModel.swift */; };
 		D1A4784A26D17BE900D5FFF3 /* Words.json in Resources */ = {isa = PBXBuildFile; fileRef = D1A4784926D17BE900D5FFF3 /* Words.json */; };
 		D1A51B6D26C5D76100E1A2DC /* WordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A51B6C26C5D76100E1A2DC /* WordsModel.swift */; };
+		E664DAFC26D4755300656FF3 /* hangmanDescription.strings in Sources */ = {isa = PBXBuildFile; fileRef = E664DAFB26D4755300656FF3 /* hangmanDescription.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +155,7 @@
 		D1A4784926D17BE900D5FFF3 /* Words.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Words.json; sourceTree = "<group>"; };
 		D1A51B6C26C5D76100E1A2DC /* WordsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsModel.swift; sourceTree = "<group>"; };
 		D91A635BCD54A45890586B63 /* Pods-Impindurado-ImpinduradoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impindurado-ImpinduradoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Impindurado-ImpinduradoUITests/Pods-Impindurado-ImpinduradoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E664DAFB26D4755300656FF3 /* hangmanDescription.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = hangmanDescription.strings; sourceTree = "<group>"; };
 		F2C2C15A0C40E186AF55F9B2 /* Pods-Impindurado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impindurado.release.xcconfig"; path = "Target Support Files/Pods-Impindurado/Pods-Impindurado.release.xcconfig"; sourceTree = "<group>"; };
 		F77FF41DB93FE9EA130F15C4 /* Pods_ImpinduradoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImpinduradoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -242,6 +244,7 @@
 				8180A5AF26C2D0300057CF10 /* button.strings */,
 				8180A5B126C2D0450057CF10 /* app.strings */,
 				8126D38426C8327200F4681C /* alert.strings */,
+				E664DAFB26D4755300656FF3 /* hangmanDescription.strings */,
 				810C14E626D1DA7000B70707 /* results.strings */,
 			);
 			path = Strings;
@@ -710,6 +713,7 @@
 				8180A5C026C2E3590057CF10 /* GameViewController.swift in Sources */,
 				81F5C38826C1DA5700C81C9A /* MenuCoordinator.swift in Sources */,
 				81F5C35526C1934D00C81C9A /* SceneDelegate.swift in Sources */,
+				E664DAFC26D4755300656FF3 /* hangmanDescription.strings in Sources */,
 				81F5C38426C1D9D700C81C9A /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -880,7 +884,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69Y77S7YQP;
+				DEVELOPMENT_TEAM = QQK85Y8S7P;
 				INFOPLIST_FILE = Impindurado/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -900,7 +904,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69Y77S7YQP;
+				DEVELOPMENT_TEAM = QQK85Y8S7P;
 				INFOPLIST_FILE = Impindurado/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol LivesViewDelegate: AnyObject {
     func didLoseAllLives()
@@ -55,10 +56,15 @@ class LivesView: UIView {
         let lastLive = stackView.arrangedSubviews[currentLives - 1]
         currentLives -= 1
         
+        self.isAccessibilityElement = true
+        self.accessibilityLabel = "Restam \(currentLives) vidas"
+        
         if currentLives == .zero {
             delegate?.didLoseAllLives()
         }
+
         if let imageView = lastLive as? UIImageView { imageView.image = R.image.life_lost() }
+        
     }
 }
 

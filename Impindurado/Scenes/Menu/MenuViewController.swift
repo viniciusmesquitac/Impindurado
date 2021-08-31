@@ -54,6 +54,8 @@ class MenuViewController: UIViewController {
     @objc func didSelectSoundButton() {
         mainView.soundButton.isMuted.toggle()
         Sound.play(file: MenuSound.background.rawValue)
+        
+        addSoundButtonHint()
     }
 
     @objc func didSelectPlayButton() {
@@ -65,5 +67,13 @@ class MenuViewController: UIViewController {
 
     @objc func didSelectLeaderboardButton() {
         // TODO: Send to LeaderBoard
+    }
+    
+    func addSoundButtonHint() {
+        if mainView.soundButton.isMuted {
+            mainView.soundButton.accessibilityHint = "Som desativado"
+        } else {
+            mainView.soundButton.accessibilityHint = "Som ativado"
+        }
     }
 }
