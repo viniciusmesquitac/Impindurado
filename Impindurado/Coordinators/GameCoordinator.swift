@@ -10,7 +10,7 @@ import UIKit
 class GameCoordinator: Coordinator {
 
     private let navigationController: UINavigationController
-    private var rootViewController: UIViewController?
+    private var rootViewController: (UIViewController & AlertDelegate)?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -28,6 +28,7 @@ class GameCoordinator: Coordinator {
         let controller = AlertViewController(title: title, type: type)
         controller.modalPresentationStyle = .overFullScreen
         controller.modalTransitionStyle = .crossDissolve
+         controller.delegate = rootViewController
         rootViewController?.present(controller, animated: true)
     }
 

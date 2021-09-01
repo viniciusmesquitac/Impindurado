@@ -47,17 +47,8 @@ class GameViewController: UIViewController {
     @objc func didSelectBackButton() {
         self.dismiss(animated: true)
     }
-}
-
-extension GameViewController: KeyboardDelegate {
-
-    func didSelectKey(key: String) {
-        coordinator?.showAlert(title: R.string.alert.checkLetter() + " \(key)?", type: .confirmLetter)
-        readingOrderChangedKeyboard()
-//        keySelected = key
-        
-//        coordinator?.result(.won, score: 0.0)
-//        guard let key = keySelected else { return }
+    
+    private func checkLetter(with key: String) {
         guard let positions = viewModel?.indexsOf(letter: key) else {
             mainView.livesView.removeOneLive()
             return
@@ -78,6 +69,14 @@ extension GameViewController: KeyboardDelegate {
     }
 }
 
+extension GameViewController: KeyboardDelegate {
+
+    func didSelectKey(key: String) {
+        coordinator?.showAlert(title: R.string.alert.checkLetter() + " \(key)?", type: .confirmLetter(key: key))
+        readingOrderChangedKeyboard()
+    }
+}
+
 
 extension GameViewController: LivesViewDelegate {
     func didLoseAllLives() {
@@ -92,8 +91,8 @@ extension GameViewController: AlertDelegate {
     func didTapConfirmButton(type: TypeAlert?) {
         // Confirm button from alert
         switch type {
-        case .confirmLetter:
-            dismiss(animated: true, completion: nil)
+        case .confirmLetter(let key):
+            checkLetter(with: key)
         case .tutorial:
             dismiss(animated: true, completion: nil)
         case .none:
@@ -102,9 +101,7 @@ extension GameViewController: AlertDelegate {
         }
     }
     
-    func didTapCancelButton(type: TypeAlert?) {
-        // Confirm button from alert
-    }
+    func didTapCancelButton(type: TypeAlert?) { }
 }
 
 extension GameViewController {
