@@ -37,10 +37,13 @@ class GameCoordinator: Coordinator {
         let controller = GameResultViewController(viewModel: viewModel, coordinator: self)
         controller.modalTransitionStyle = .crossDissolve
         controller.modalPresentationStyle = .overFullScreen
-        rootViewController?.present(controller, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
+            self.rootViewController?.present(controller, animated: true)
+        }
     }
     
     func returnToMenu() {
+        rootViewController = nil
         navigationController.dismiss(animated: false)
     }
 }

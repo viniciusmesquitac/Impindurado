@@ -21,8 +21,8 @@ class LivesView: UIView {
     }()
 
     // Variables
-    private var totalNumberOfLives: Int = 0
-    private var currentLives: Int = 0
+    public var totalNumberOfLives: Int = 0
+    public var currentLives: Int = 0
     
     weak var delegate: LivesViewDelegate?
 
