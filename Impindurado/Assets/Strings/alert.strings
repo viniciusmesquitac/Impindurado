@@ -1,0 +1,10 @@
+/* 
+  alertmessage.strings
+  Impindurado
+
+  Created by Vinicius Mesquita on 14/08/21.
+  
+*/
+
+"checkLetter" = "Você disse a letra";
+"hearTutorial" = "Você deseja ouvir o tutorial?";

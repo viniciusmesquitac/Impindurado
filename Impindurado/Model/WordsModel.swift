@@ -12,7 +12,9 @@ class WordsModel {
     private var actualWord: String
     
     init() {
-        setNewWord()
+        let jsonModel = JSONDataModel()
+        word = jsonModel.getRandomWord()
+        actualWord = word.portuguese
     }
     
     //// Reinicia todo o fluxo de word
@@ -32,8 +34,8 @@ class WordsModel {
     func positionsForThis(letter: String) -> [Int] {
         var indexs = [Int]()
         
-        for (index, letter) in actualWord.enumerated() {
-            if letter == letter {
+        for (index, wordLetter) in actualWord.enumerated() {
+            if letter.lowercased() == wordLetter.description {
                 indexs.append(index)
             }
         }
