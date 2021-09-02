@@ -15,7 +15,6 @@ class GameViewController: UIViewController {
     let mainView = GameView()
     var viewModel: GameViewModel?
     var coordinator: GameCoordinator?
-    private var keySelected: String?
 
     init(viewModel: GameViewModel, coordinator: GameCoordinator) {
         self.viewModel = viewModel
@@ -51,20 +50,21 @@ class GameViewController: UIViewController {
     private func checkLetter(with key: String) {
         guard let positions = viewModel?.indexsOf(letter: key) else {
             mainView.livesView.removeOneLive()
+            mainView.updateImage()
             return
         }
 
         for position in positions {
+            viewModel?.score += 10
+            mainView.scoreLabel.text = "\(viewModel?.score ?? .zero)"
             mainView.dottedTextView.insertLetter(at: position, letter: key)
         }
 
         if viewModel?.isCompletedWord(with: mainView.dottedTextView.labels) == true {
             if viewModel?.isUserWin() == true {
-               print("Ganhou!!!")
-            } else {
-                // Player has finished the first word stage.
-                // TODO: Coordinate to another
+                coordinator?.result(.won, score: viewModel?.score ?? .zero)
             }
+            coordinator?.start()
         }
     }
 }
@@ -80,8 +80,7 @@ extension GameViewController: KeyboardDelegate {
 
 extension GameViewController: LivesViewDelegate {
     func didLoseAllLives() {
-        // Example of game over
-        print("you Lost!")
+        coordinator?.result(.lose, score: viewModel?.score ?? .zero)
     }
     
 }

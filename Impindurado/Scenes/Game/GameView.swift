@@ -80,8 +80,6 @@ class GameView: UIView {
 
     let stickmanImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = R.image.stickman6()
-        
         imageView.isAccessibilityElement = true
         imageView.accessibilityLabel = "Ainda não há membros desenhados!"
         return imageView
@@ -115,6 +113,11 @@ class GameView: UIView {
         setupViewHierarchy()
         setupConstraints()
         configureAccessibilityElementsOrder()
+    }
+    
+    public func updateImage() {
+        let remainLives = livesView.totalNumberOfLives - livesView.currentLives
+        stickmanImage.image = UIImage(named: "stickman\(remainLives)")
     }
 
     required init?(coder: NSCoder) {
