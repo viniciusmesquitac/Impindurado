@@ -36,7 +36,6 @@ class GameViewController: UIViewController {
         mainView.livesView.delegate = self
         mainView.backButton.addTarget(self, action: #selector(didSelectBackButton), for: .touchUpInside)
         
-        viewModel?.startGame()
         mainView.dottedTextView.configure(numberOfSlots: viewModel?.numberOfLetters() ?? 0)
         
         guard let viewModel = viewModel else { return }

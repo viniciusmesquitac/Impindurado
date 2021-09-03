@@ -14,7 +14,11 @@ struct GameViewModel: ViewModel {
     let wordsModel = WordsModel()
     var score: Float = 0.0
     
-    func startGame() {
+    init() {
+        startGame()
+    }
+    
+    private func startGame() {
         wordsModel.setNewWord()
     }
     
@@ -23,8 +27,7 @@ struct GameViewModel: ViewModel {
     }
     
     func indexsOf(letter: String) -> [Int]? {
-        let diacriticInsensitiveLetter = letter.folding(options: .diacriticInsensitive, locale: .current).lowercased()
-        let indexs = wordsModel.positionsForThis(letter: diacriticInsensitiveLetter)
+        let indexs = wordsModel.positionsForThis(letter: letter.lowercased())
         return indexs.isEmpty ? nil : indexs
     }
     
