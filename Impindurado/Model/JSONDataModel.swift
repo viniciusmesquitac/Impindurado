@@ -14,7 +14,7 @@ protocol JSONModel {
 class JSONDataModel: JSONModel {
     private lazy var words: [Word] = readAllWords()
     
-    internal func readAllWords(for jsonFile: String = "jsonFile") -> [Word] {
+    internal func readAllWords(for jsonFile: String = "Words") -> [Word] {
         let pathUrl = Bundle.main.url(forResource: jsonFile, withExtension: "json")!
         let jsonData = try? Data(contentsOf: pathUrl)
         guard let data = jsonData else {

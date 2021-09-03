@@ -16,8 +16,9 @@ final class AppCoordinator: Coordinator {
         self.window = window
         self.navigationController = UINavigationController()
         self.navigationController.navigationBar.backgroundColor = .clear
-        self.navigationController.navigationBar.isTranslucent = false
+        self.navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController.navigationBar.barTintColor = .clear
+        self.navigationController.navigationBar.shadowImage = UIImage()
         self.navigationController.navigationBar.barStyle = .black
     }
 

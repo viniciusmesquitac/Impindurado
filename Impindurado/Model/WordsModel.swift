@@ -8,11 +8,13 @@
 import Foundation
 
 class WordsModel {
-    private var word: Word
-    private var actualWord: String
+    public var word: Word
+    public var actualWord: String
     
     init() {
-        setNewWord()
+        let jsonModel = JSONDataModel()
+        word = jsonModel.getRandomWord()
+        actualWord = word.portuguese
     }
     
     //// Reinicia todo o fluxo de word
@@ -32,8 +34,8 @@ class WordsModel {
     func positionsForThis(letter: String) -> [Int] {
         var indexs = [Int]()
         
-        for (index, letter) in actualWord.enumerated() {
-            if letter == letter {
+        for (index, wordLetter) in actualWord.enumerated() {
+            if letter.lowercased() == wordLetter.description {
                 indexs.append(index)
             }
         }
@@ -45,7 +47,8 @@ class WordsModel {
     func isWordComplete(with letters: [String]) -> Bool {
         var containtsAllLetters = true
         letters.forEach { letter in
-            if !actualWord.contains(letter) {
+            let diacriticInsensitiveLetter = letter.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+            if !actualWord.contains(diacriticInsensitiveLetter) {
                 containtsAllLetters = false
             }
         }

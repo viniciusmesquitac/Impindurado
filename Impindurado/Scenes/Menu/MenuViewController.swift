@@ -29,11 +29,16 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Sound.enabled = false
+        mainView.soundButton.isMuted = true
         setupOutput()
         setupInput()
     }
     
     func setupOutput() {
+        DispatchQueue.main.async {
+            self.mainView.performAnimation()
+        }
         Sound.play(file: MenuSound.background.rawValue)
     }
 
@@ -49,13 +54,26 @@ class MenuViewController: UIViewController {
     @objc func didSelectSoundButton() {
         mainView.soundButton.isMuted.toggle()
         Sound.play(file: MenuSound.background.rawValue)
+        
+        addSoundButtonHint()
     }
 
     @objc func didSelectPlayButton() {
-        coordinator?.gameScene()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
+            self.coordinator?.gameScene()
+        }
+
     }
 
     @objc func didSelectLeaderboardButton() {
         // TODO: Send to LeaderBoard
+    }
+    
+    func addSoundButtonHint() {
+        if mainView.soundButton.isMuted {
+            mainView.soundButton.accessibilityHint = "Som desativado"
+        } else {
+            mainView.soundButton.accessibilityHint = "Som ativado"
+        }
     }
 }
