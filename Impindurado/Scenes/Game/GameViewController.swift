@@ -44,7 +44,7 @@ class GameViewController: UIViewController {
     }
 
     @objc func didSelectBackButton() {
-        self.dismiss(animated: true)
+        coordinator?.showAlert(title: "Você deseja desistir?", type: .giveUp)
     }
     
     private func checkLetter(with key: String) {
@@ -63,8 +63,12 @@ class GameViewController: UIViewController {
         if viewModel?.isCompletedWord(with: mainView.dottedTextView.labels) == true {
             if viewModel?.isUserWin() ?? false {
                 coordinator?.result(.won, score: viewModel?.score ?? .zero)
+            } else {
+                if let viewModel = viewModel {
+                    coordinator?.nextLevel(viewModel: viewModel)
+                }
             }
-            coordinator?.start()
+            
         }
     }
 }
@@ -94,13 +98,35 @@ extension GameViewController: AlertDelegate {
             checkLetter(with: key)
         case .tutorial:
             dismiss(animated: true, completion: nil)
-        case .none:
-            print("Type Alert invalid")
+        case .giveUp:
+            giveUp()
+        default:
+            print("Returning to `GameViewController`")
 
         }
     }
     
-    func didTapCancelButton(type: TypeAlert?) { }
+    func didTapCancelButton(type: TypeAlert?) {
+        switch type {
+        case .confirmLetter( _):
+            mainView.keyboardView.showSelectedButton()
+        case .tutorial:
+            dismiss(animated: true, completion: nil)
+        default:
+            print("Returning to `GameViewController`")
+
+        }
+    }
+    
+    func giveUp() {
+        if viewModel?.wordsModel.actualWord == viewModel?.wordsModel.word.portuguese {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
+                self.dismiss(animated: true)
+            }
+        } else {
+            coordinator?.returnToMenu()
+        }
+    }
 }
 
 extension GameViewController {

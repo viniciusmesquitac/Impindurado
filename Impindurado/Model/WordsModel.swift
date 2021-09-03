@@ -8,8 +8,8 @@
 import Foundation
 
 class WordsModel {
-    private var word: Word
-    private var actualWord: String
+    public var word: Word
+    public var actualWord: String
     
     init() {
         let jsonModel = JSONDataModel()

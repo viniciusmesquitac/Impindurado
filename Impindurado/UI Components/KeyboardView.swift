@@ -27,6 +27,7 @@ class KeyboardView: UIView {
 
     weak var delegate: KeyboardDelegate?
     var key: String?
+    private var selectedButton: UIButton?
 
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -80,6 +81,7 @@ extension KeyboardView: ViewCode {
         if let key = Alphabet.fromHash(hashValue: target.tag) {
             target.isUserInteractionEnabled = false
             target.alpha = 0
+            selectedButton = target
             delegate?.didSelectKey(key: key.rawValue)
         }
     }
@@ -104,6 +106,11 @@ extension KeyboardView: ViewCode {
         keyLineStackView.distribution = .fillProportionally
         keyLineStackView.spacing = 4
         return keyLineStackView
+    }
+    
+    public func showSelectedButton() {
+        selectedButton?.isUserInteractionEnabled = true
+        selectedButton?.alpha = 1.0
     }
 }
 

@@ -23,7 +23,7 @@ struct GameViewModel: ViewModel {
     }
     
     func indexsOf(letter: String) -> [Int]? {
-        let diacriticInsensitiveLetter = letter.folding(options: .diacriticInsensitive, locale: .current)
+        let diacriticInsensitiveLetter = letter.folding(options: .diacriticInsensitive, locale: .current).lowercased()
         let indexs = wordsModel.positionsForThis(letter: diacriticInsensitiveLetter)
         return indexs.isEmpty ? nil : indexs
     }
