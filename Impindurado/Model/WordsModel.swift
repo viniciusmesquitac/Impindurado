@@ -8,8 +8,8 @@
 import Foundation
 
 class WordsModel {
-    private var word: Word
-    private var actualWord: String
+    public var word: Word
+    public var actualWord: String
     
     init() {
         let jsonModel = JSONDataModel()
@@ -47,7 +47,8 @@ class WordsModel {
     func isWordComplete(with letters: [String]) -> Bool {
         var containtsAllLetters = true
         letters.forEach { letter in
-            if !actualWord.contains(letter.lowercased()) {
+            let diacriticInsensitiveLetter = letter.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+            if !actualWord.contains(diacriticInsensitiveLetter) {
                 containtsAllLetters = false
             }
         }

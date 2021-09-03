@@ -15,6 +15,7 @@ protocol AlertDelegate: AnyObject {
 enum TypeAlert {
     case tutorial
     case confirmLetter(key: String)
+    case giveUp
 }
 
 class AlertViewController: UIViewController {

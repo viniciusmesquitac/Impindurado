@@ -28,7 +28,7 @@ class GameCoordinator: Coordinator {
         let controller = AlertViewController(title: title, type: type)
         controller.modalPresentationStyle = .overFullScreen
         controller.modalTransitionStyle = .crossDissolve
-         controller.delegate = rootViewController
+        controller.delegate = rootViewController
         rootViewController?.present(controller, animated: true)
     }
 
@@ -42,8 +42,20 @@ class GameCoordinator: Coordinator {
         }
     }
     
+    func nextLevel(viewModel: GameViewModel) {
+        let controller = GameViewController(viewModel: viewModel, coordinator: self)
+        controller.modalTransitionStyle = .crossDissolve
+        controller.modalPresentationStyle = .overFullScreen
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
+            self.rootViewController?.present(controller, animated: true)
+            self.rootViewController = controller
+        }
+    }
+    
     func returnToMenu() {
         rootViewController = nil
-        navigationController.dismiss(animated: false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
+            self.navigationController.dismiss(animated: false)
+        }
     }
 }
