@@ -61,7 +61,7 @@ class GameViewController: UIViewController {
         }
 
         if viewModel?.isCompletedWord(with: mainView.dottedTextView.labels) == true {
-            if viewModel?.isUserWin() == true {
+            if viewModel?.isUserWin() ?? false {
                 coordinator?.result(.won, score: viewModel?.score ?? .zero)
             }
             coordinator?.start()

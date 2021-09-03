@@ -47,7 +47,7 @@ class WordsModel {
     func isWordComplete(with letters: [String]) -> Bool {
         var containtsAllLetters = true
         letters.forEach { letter in
-            if !actualWord.contains(letter) {
+            if !actualWord.contains(letter.lowercased()) {
                 containtsAllLetters = false
             }
         }

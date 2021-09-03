@@ -29,8 +29,14 @@ struct GameViewModel: ViewModel {
     }
     
     func isCompletedWord(with label: [UILabel]) -> Bool {
-        let labels = label.filter {$0.text?.isEmpty == false }
+        let labels = label.filter { $0.text?.isEmpty == false }
         let texts = labels.compactMap { String($0.text!.first!) }
+        
+        // Verifica se todas as letras anteriores da palavra ja foram acertadas
+        if texts.count != label.count {
+            return false
+        }
+        
         return wordsModel.isWordComplete(with: texts)
     }
     
