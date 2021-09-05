@@ -21,7 +21,7 @@ class WordsModel {
     func setNewWord() {
         let jsonModel = JSONDataModel()
         word = jsonModel.getRandomWord()
-        actualWord = word.portuguese
+        actualWord = word.portuguese.folding(options: .diacriticInsensitive, locale: .current).lowercased()
     }
     
     //// Retorna o numero de letras da palavra atual.
