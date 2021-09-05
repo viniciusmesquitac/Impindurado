@@ -110,10 +110,10 @@ class DottedTextView: UIView {
         var letters = ""
         for letter in labels {
             if letter.text == nil {
-                letters.append(" espaço")
+                letters.append(" Campo vazio, ")
             } else {
                 guard let text = letter.text else { return "" }
-                letters.append(" \(text)")
+                letters.append(" letra \(text), ")
             }
         }
         return letters
