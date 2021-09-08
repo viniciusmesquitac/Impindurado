@@ -39,7 +39,7 @@ class GameViewController: UIViewController {
         mainView.dottedTextView.configure(numberOfSlots: viewModel?.numberOfLetters() ?? 0)
         
         guard let viewModel = viewModel else { return }
-        configureAccessibility(numberOfLetters: viewModel.numberOfLetters(), category: "Objeto")
+        configureAccessibility(numberOfLetters: viewModel.numberOfLetters(), category: "Geral")
     }
 
     @objc func didSelectBackButton() {
@@ -50,6 +50,7 @@ class GameViewController: UIViewController {
         guard let positions = viewModel?.indexsOf(letter: key) else {
             mainView.livesView.removeOneLive()
             mainView.updateImage()
+            mainView.updateImageAccessibility()
             return
         }
 
@@ -57,6 +58,7 @@ class GameViewController: UIViewController {
             viewModel?.score += 10
             mainView.scoreLabel.text = "\(viewModel?.score ?? .zero)"
             mainView.dottedTextView.insertLetter(at: position, letter: key)
+            updateScoreAccessibility(score: viewModel!.score)
         }
 
         if viewModel?.isCompletedWord(with: mainView.dottedTextView.labels) == true {
@@ -69,6 +71,8 @@ class GameViewController: UIViewController {
             }
             
         }
+        
+        seeSlots(textView: mainView.dottedTextView)
     }
 }
 
@@ -164,11 +168,8 @@ extension GameViewController {
         mainView.dottedTextView.accessibilityLabel = letters
     }
     
-    func updateScoreAccessibility(score: Int) {
+    func updateScoreAccessibility(score: Float) {
         mainView.scoreLabel.accessibilityLabel = "A pontuação atual é \(score)"
     }
-    
-    func updateImageAccessibility(imageLabel: String) {
-        mainView.stickmanImage.accessibilityLabel = imageLabel
-    }
+
 }

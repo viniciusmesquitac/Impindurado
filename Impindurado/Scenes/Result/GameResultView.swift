@@ -15,6 +15,9 @@ class GameResultView: UIView {
         let button = UIButton()
         button.setImage(R.image.ic_back(), for: .normal)
         button.tintColor = .white
+        
+        button.isAccessibilityElement = true
+        button.accessibilityLabel = "Voltar ao menu inicial"
         return button
     }()
 
@@ -28,6 +31,8 @@ class GameResultView: UIView {
         label.textAlignment = .center
         label.numberOfLines = -1
         label.font = R.font.nes2(size: FontSize.largeTitle.rawValue)
+        
+        label.isAccessibilityElement = true
         return label
     }()
     
@@ -94,6 +99,7 @@ extension GameResultView: ViewCode {
         addSubview(backButton)
         addSubview(resultLabel)
         addSubview(scoreLabel)
+        configureAccessibilityElementsOrder()
     }
 
     func setupConstraints() {
@@ -115,6 +121,14 @@ extension GameResultView: ViewCode {
             make.top.equalTo(resultLabel.snp.bottom).offset(Spacing.normal.rawValue)
             make.centerX.equalToSuperview()
         }
+    }
+    
+    func configureAccessibilityElementsOrder() {
+        accessibilityElements = [
+            resultLabel,
+            scoreLabel,
+            backButton
+        ]
     }
 
 }

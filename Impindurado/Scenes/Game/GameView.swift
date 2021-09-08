@@ -17,7 +17,6 @@ class GameView: UIView {
         
         view.isAccessibilityElement = true
         view.accessibilityLabel = "Restam 6 vidas"
-        // "Restam 6 vidas" ou "Você tem 6 de 6 vidas"?
         return view
     }()
 
@@ -87,7 +86,7 @@ class GameView: UIView {
     
     let categoryLabel: UILabel = {
         let label = UILabel()
-        label.text = "Categoria"
+        label.text = "Categoria: Geral"
         label.font = R.font.pacificoRegular(size: 18)
         label.textColor = .white
         
@@ -118,6 +117,32 @@ class GameView: UIView {
     public func updateImage() {
         let remainLives = livesView.totalNumberOfLives - livesView.currentLives
         stickmanImage.image = UIImage(named: "stickman\(remainLives)")
+    }
+    
+    public func updateImageAccessibility() {
+        let remainLives = livesView.totalNumberOfLives - livesView.currentLives
+        var labelImage = ""
+
+        if let hangmanImage = HangmanImage(rawValue: remainLives) {
+            switch hangmanImage {
+            case .stickman1:
+                labelImage = "Cabeça desenhada"
+            case .stickman2:
+                labelImage = "Cabeça e tronco desenhados"
+            case .stickman3:
+                labelImage = "Cabeça, tronco e braço esquerdo desenhados"
+            case .stickman4:
+                labelImage = "Cabeça, tronco e dois braços desenhados"
+            case .stickman5:
+                labelImage = "Cabeça, tronco, dois braços e perna esquerda desenhados"
+            case .stickman6:
+                labelImage = "Cabeça, tronco, dois braços e duas pernas desenhados"
+            }
+        } else {
+            labelImage = "Ainda não há membros desenhados!"
+        }
+        
+        stickmanImage.accessibilityLabel = labelImage
     }
 
     required init?(coder: NSCoder) {

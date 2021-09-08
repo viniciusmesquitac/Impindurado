@@ -60,6 +60,7 @@
 		D1A4784A26D17BE900D5FFF3 /* Words.json in Resources */ = {isa = PBXBuildFile; fileRef = D1A4784926D17BE900D5FFF3 /* Words.json */; };
 		D1A51B6D26C5D76100E1A2DC /* WordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A51B6C26C5D76100E1A2DC /* WordsModel.swift */; };
 		E664DAFC26D4755300656FF3 /* hangmanDescription.strings in Sources */ = {isa = PBXBuildFile; fileRef = E664DAFB26D4755300656FF3 /* hangmanDescription.strings */; };
+		E6F600E926E51AD10020245E /* hangmanImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F600E826E51AD10020245E /* hangmanImageEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		D1A51B6C26C5D76100E1A2DC /* WordsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsModel.swift; sourceTree = "<group>"; };
 		D91A635BCD54A45890586B63 /* Pods-Impindurado-ImpinduradoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impindurado-ImpinduradoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Impindurado-ImpinduradoUITests/Pods-Impindurado-ImpinduradoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E664DAFB26D4755300656FF3 /* hangmanDescription.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = hangmanDescription.strings; sourceTree = "<group>"; };
+		E6F600E826E51AD10020245E /* hangmanImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hangmanImageEnum.swift; sourceTree = "<group>"; };
 		F2C2C15A0C40E186AF55F9B2 /* Pods-Impindurado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impindurado.release.xcconfig"; path = "Target Support Files/Pods-Impindurado/Pods-Impindurado.release.xcconfig"; sourceTree = "<group>"; };
 		F77FF41DB93FE9EA130F15C4 /* Pods_ImpinduradoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImpinduradoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -373,6 +375,7 @@
 				81F5C3B826C1E94700C81C9A /* ViewCode.swift */,
 				81F5C3BA26C1E96E00C81C9A /* ViewModel.swift */,
 				8126D38626CA9E4A00F4681C /* Device.swift */,
+				E6F600E826E51AD10020245E /* hangmanImageEnum.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				810C14E526D1CDA400B70707 /* GameResultViewModel.swift in Sources */,
 				810C14F526D2B17500B70707 /* FontSize.swift in Sources */,
 				D13304BE26C497B4001D563C /* JSONDataModel.swift in Sources */,
+				E6F600E926E51AD10020245E /* hangmanImageEnum.swift in Sources */,
 				81F5C38626C1DA1200C81C9A /* AppCoordinator.swift in Sources */,
 				8126D38126C80F5400F4681C /* DottedTextView.swift in Sources */,
 				810C14E326D1CDA400B70707 /* GameResultViewController.swift in Sources */,
@@ -890,6 +894,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Impindurado.Impindurado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -910,6 +915,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Impindurado.Impindurado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
